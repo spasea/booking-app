@@ -18,9 +18,9 @@
 
 	require('./models/bootstrap');
 
-	import router from './models/routes';
-	import HeaderComponent from './views/layout-parts/HeaderComponent.vue';
-	import FooterComponent from './views/layout-parts/FooterComponent.vue';
+	import router from './models/routes'
+	import HeaderComponent from './views/layout-parts/HeaderComponent.vue'
+	import FooterComponent from './views/layout-parts/FooterComponent.vue'
 
 	export default {
 		data() {

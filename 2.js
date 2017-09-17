@@ -50,12 +50,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			title: 'AddFilm'
+			title: 'AddFilm',
+			filmTitle: ''
 		};
+	},
+
+	methods: {
+		addFilm: function addFilm() {
+			ls.set('comedy', [{
+				title: this.filmTitle
+			}], this);
+			this.filmTitle = '';
+		}
 	}
 });
 
@@ -65,7 +96,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v(_vm._s(_vm.title))])
+  return _c('div', [_c('div', {
+    staticClass: "columns"
+  }, [_c('section', {
+    staticClass: "column is-half is-offset-one-quarter"
+  }, [_vm._v("\n\t\t\t" + _vm._s(_vm.title) + "\n\t\t")])]), _vm._v(" "), _c('div', {
+    staticClass: "columns"
+  }, [_c('section', {
+    staticClass: "column is-half is-offset-one-quarter"
+  }, [_c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Name")]), _vm._v(" "), _c('div', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.filmTitle),
+      expression: "filmTitle"
+    }],
+    staticClass: "input",
+    attrs: {
+      "type": "text",
+      "placeholder": "Text input"
+    },
+    domProps: {
+      "value": (_vm.filmTitle)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.filmTitle = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('div', {
+    staticClass: "control"
+  }, [_c('button', {
+    staticClass: "button is-primary",
+    on: {
+      "click": _vm.addFilm
+    }
+  }, [_vm._v("Submit")])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

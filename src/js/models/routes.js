@@ -1,5 +1,5 @@
-import VueRouter from 'vue-router';
-import routes from './RouteLinks';
+import VueRouter from 'vue-router'
+import routes from './RouteLinks'
 
 export default new VueRouter({
 	routes,
