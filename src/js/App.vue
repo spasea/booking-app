@@ -1,6 +1,7 @@
 <template>
-	<div>
+	<div id="app">
 		<header>
+			<header-component></header-component>
 		</header>
 
 		<main class="main">
@@ -8,6 +9,7 @@
 		</main>
 
 		<footer>
+			<footer-component></footer-component>
 		</footer>
 	</div>
 </template>
@@ -17,6 +19,8 @@
 	require('./models/bootstrap');
 
 	import router from './models/routes';
+	import HeaderComponent from './views/layout-parts/HeaderComponent.vue';
+	import FooterComponent from './views/layout-parts/FooterComponent.vue';
 
 	export default {
 		data() {
@@ -25,5 +29,9 @@
 			}
 		},
 		router,
+		components: {
+			HeaderComponent,
+			FooterComponent
+		}
 	}
 </script>

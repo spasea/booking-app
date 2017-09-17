@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 22:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var Component = __webpack_require__(4)(
+var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(32),
   /* template */
-  __webpack_require__(27),
+  __webpack_require__(33),
   /* styles */
   null,
   /* scopeId */
@@ -41,11 +41,17 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 26:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -61,11 +67,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 27:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v(_vm._s(_vm.title))])
+  return _c('div', [_vm._v(_vm._s(_vm.title) + "\n\t"), _c('router-link', {
+    key: "Add Film",
+    attrs: {
+      "tag": "a",
+      "to": "/add-film",
+      "exact": ""
+    }
+  }, [_vm._v("add film")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

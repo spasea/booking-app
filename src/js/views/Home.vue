@@ -1,5 +1,11 @@
 <template>
-	<div>{{ title }}</div>
+	<div>{{ title }}
+		<router-link
+			tag="a" key="Add Film"
+			to="/add-film"
+			exact
+		>add film</router-link>
+	</div>
 </template>
 
 <script>
