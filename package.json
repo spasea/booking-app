@@ -1,0 +1,25 @@
+{
+  "name": "booking-app",
+  "version": "1.0.0",
+  "description": "A booking app with vue js",
+  "main": "index.js",
+  "repository": "git@github.com:spasea/booking-app.git",
+  "author": "spasea <ithespv@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "bulma": "^0.5.2",
+    "cross-env": "^5.0.5",
+    "laravel-mix": "^1.4.3",
+    "vue": "^2.4.4",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0"
+  }
+}
