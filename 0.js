@@ -15703,6 +15703,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
 
 var _vueDatepicker = __webpack_require__(155);
 
@@ -15773,8 +15777,19 @@ exports.default = {
 				this.filmFields[field] = '';
 			}
 		},
+		preventEvents: function preventEvents(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		},
 		drop: function drop(e) {
-			console.log(e);
+			this.preventEvents(e);
+			this.saveImage(e);
+		},
+		dragover: function dragover(e) {
+			this.preventEvents(e);
+		},
+		dragleave: function dragleave(e) {
+			this.preventEvents(e);
 		},
 		saveImage: function saveImage(e) {
 			var files = e.target.files || e.dataTransfer.files;
@@ -17340,7 +17355,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "change": _vm.saveImage
     }
   }), _vm._v(" "), _c('span', {
-    staticClass: "file-cta"
+    staticClass: "file-cta",
+    on: {
+      "drop": _vm.drop,
+      "dragover": _vm.dragover,
+      "dragleave": _vm.dragleave
+    }
   }, [_vm._m(0), _vm._v(" "), (!(_vm.isLoading && _vm.photosNumber)) ? _c('span', {
     staticClass: "file-label"
   }, [_vm._v("\n\t\t\t\t\t\t\t\t\tDrag'n'drop file here or choose it\n\t\t\t\t\t\t\t\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading && _vm.photosNumber) ? _c('span', {

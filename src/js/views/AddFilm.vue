@@ -30,7 +30,11 @@
 								<input class="file-input" type="file" multiple name="Image"
 									@change="saveImage"
 								>
-								<span class="file-cta">
+								<span class="file-cta"
+									@drop="drop"
+									@dragover="dragover"
+									@dragleave="dragleave"
+								>
 									<span class="file-icon">
 										<i class="fa fa-upload"></i>
 									</span>
@@ -163,8 +167,19 @@
 					this.filmFields[field] = '';
 				}
 			},
+			preventEvents(e) {
+				e.preventDefault();
+				e.stopPropagation();
+			},
 			drop(e) {
-				console.log(e);
+				this.preventEvents(e);
+				this.saveImage(e);
+			},
+			dragover(e) {
+				this.preventEvents(e);
+			},
+			dragleave(e) {
+				this.preventEvents(e);
 			},
 			saveImage(e) {
 				const files = e.target.files || e.dataTransfer.files;
