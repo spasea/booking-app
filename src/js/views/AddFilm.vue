@@ -60,8 +60,6 @@
 	import DatePicker from 'vue-datepicker'
 	import settings from '../models/datePickerConfig'
 
-	import VueClockPicker from 'vue-clock-picker'
-
 	export default {
 		data() {
 			return {
@@ -111,7 +109,6 @@
 		},
 		components: {
 			DatePicker,
-			VueClockPicker,
 			VueTimepicker
 		}
 	}
