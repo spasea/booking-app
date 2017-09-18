@@ -20,6 +20,40 @@
 					</div>
 				</div>
 				<div class="field">
+					<label class="label">Logo</label>
+					<div class="control">
+						<div :class="{
+							file: true,
+							'is-warning': isLoading && photosNumber
+						}">
+							<label class="file-label">
+								<input class="file-input" type="file" multiple name="Image"
+									@change="saveImage"
+								>
+								<span class="file-cta">
+									<span class="file-icon">
+										<i class="fa fa-upload"></i>
+									</span>
+									<span class="file-label" v-if="! (isLoading && photosNumber)">
+										Drag'n'drop file here or choose it
+									</span>
+									<span class="file-label" v-if="isLoading && photosNumber">
+										Loading...
+									</span>
+								</span>
+								<span class="file-name">
+									{{ fileName }}
+								</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<img :src="image" style="width: 100px; height: 100px; object-fit: cover"
+						 v-for="image in logo"
+					>
+				</div>
+				<div class="field">
 					<label class="label">Genre</label>
 					<div class="control columns">
 						<div class="column">
@@ -82,12 +116,15 @@
 					date: {
 						time: ''
 					},
+					logo: [],
+					fileNames: [],
 					time: {
 						HH: '',
 						mm: ''
 					},
 					genre: '',
-					duration: 80
+					duration: 80,
+					photosNumber: 0
 				},
 				...settings
 			}
@@ -95,6 +132,16 @@
 		computed: {
 			genres() {
 				return ls.get('categories', this);
+			},
+			fileName() {
+				let name = '';
+				this.fileNames.forEach(el => {
+					name += `${el}, `;
+				});
+				return name.slice(0, name.length - 2);
+			},
+			isLoading() {
+				return this.photosNumber !== this.logo.length;
 			}
 		},
 		methods: {
@@ -108,13 +155,39 @@
 						description: this.filmFields.description,
 						date: this.date.time,
 						time: `${this.time.HH}:${this.time.mm}`,
-						duration: this.duration
+						duration: this.duration,
+						logo: this.logo
 					}
 				], this);
 				for (let field in this.filmFields) {
 					this.filmFields[field] = '';
 				}
-			}
+			},
+			drop(e) {
+				console.log(e);
+			},
+			saveImage(e) {
+				const files = e.target.files || e.dataTransfer.files;
+				if (! files.length) return;
+				this.logo = [];
+				this.fileNames = [];
+				this.photosNumber = files.length;
+				for (let file in files) {
+					let el = files[file];
+					if (el.type === 'image/jpeg' || el.type === 'image/png') {
+						this.createImage(el);
+					}
+				}
+			},
+			createImage(file) {
+				const reader = new FileReader();
+
+				reader.onload = (e) => {
+					this.logo.push(e.target.result);
+					this.fileNames.push(file.name)
+				};
+				reader.readAsDataURL(file);
+			},
 		},
 		mounted() {
 			this.genre = this.genres[0]['id'];

@@ -15669,6 +15669,40 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var _vueDatepicker = __webpack_require__(155);
 
@@ -15695,18 +15729,31 @@ exports.default = {
 			date: {
 				time: ''
 			},
+			logo: [],
+			fileNames: [],
 			time: {
 				HH: '',
 				mm: ''
 			},
 			genre: '',
-			duration: 80
+			duration: 80,
+			photosNumber: 0
 		}, _datePickerConfig2.default);
 	},
 
 	computed: {
 		genres: function genres() {
 			return ls.get('categories', this);
+		},
+		fileName: function fileName() {
+			var name = '';
+			this.fileNames.forEach(function (el) {
+				name += el + ', ';
+			});
+			return name.slice(0, name.length - 2);
+		},
+		isLoading: function isLoading() {
+			return this.photosNumber !== this.logo.length;
 		}
 	},
 	methods: {
@@ -15719,11 +15766,39 @@ exports.default = {
 				description: this.filmFields.description,
 				date: this.date.time,
 				time: this.time.HH + ':' + this.time.mm,
-				duration: this.duration
+				duration: this.duration,
+				logo: this.logo
 			}], this);
 			for (var field in this.filmFields) {
 				this.filmFields[field] = '';
 			}
+		},
+		drop: function drop(e) {
+			console.log(e);
+		},
+		saveImage: function saveImage(e) {
+			var files = e.target.files || e.dataTransfer.files;
+			if (!files.length) return;
+			this.logo = [];
+			this.fileNames = [];
+			this.photosNumber = files.length;
+			for (var file in files) {
+				var el = files[file];
+				if (el.type === 'image/jpeg' || el.type === 'image/png') {
+					this.createImage(el);
+				}
+			}
+		},
+		createImage: function createImage(file) {
+			var _this = this;
+
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				_this.logo.push(e.target.result);
+				_this.fileNames.push(file.name);
+			};
+			reader.readAsDataURL(file);
 		}
 	},
 	mounted: function mounted() {
@@ -17245,6 +17320,50 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "field"
   }, [_c('label', {
     staticClass: "label"
+  }, [_vm._v("Logo")]), _vm._v(" "), _c('div', {
+    staticClass: "control"
+  }, [_c('div', {
+    class: {
+      file: true,
+        'is-warning': _vm.isLoading && _vm.photosNumber
+    }
+  }, [_c('label', {
+    staticClass: "file-label"
+  }, [_c('input', {
+    staticClass: "file-input",
+    attrs: {
+      "type": "file",
+      "multiple": "",
+      "name": "Image"
+    },
+    on: {
+      "change": _vm.saveImage
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "file-cta"
+  }, [_vm._m(0), _vm._v(" "), (!(_vm.isLoading && _vm.photosNumber)) ? _c('span', {
+    staticClass: "file-label"
+  }, [_vm._v("\n\t\t\t\t\t\t\t\t\tDrag'n'drop file here or choose it\n\t\t\t\t\t\t\t\t")]) : _vm._e(), _vm._v(" "), (_vm.isLoading && _vm.photosNumber) ? _c('span', {
+    staticClass: "file-label"
+  }, [_vm._v("\n\t\t\t\t\t\t\t\t\tLoading...\n\t\t\t\t\t\t\t\t")]) : _vm._e()]), _vm._v(" "), _c('span', {
+    staticClass: "file-name"
+  }, [_vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.fileName) + "\n\t\t\t\t\t\t\t")])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, _vm._l((_vm.logo), function(image) {
+    return _c('img', {
+      staticStyle: {
+        "width": "100px",
+        "height": "100px",
+        "object-fit": "cover"
+      },
+      attrs: {
+        "src": image
+      }
+    })
+  })), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
   }, [_vm._v("Genre")]), _vm._v(" "), _c('div', {
     staticClass: "control columns"
   }, [_c('div', {
@@ -17329,7 +17448,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.addFilm
     }
   }, [_vm._v("Submit")])])])])])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "file-icon"
+  }, [_c('i', {
+    staticClass: "fa fa-upload"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
