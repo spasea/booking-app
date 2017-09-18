@@ -35,15 +35,23 @@
 					</div>
 				</div>
 				<div class="field">
-					<label class="label">Date</label>
+					<label class="label">Starting date</label>
 					<div class="control">
 						<date-picker :date="date" :option="option"></date-picker>
 					</div>
 				</div>
 				<div class="field">
-					<label class="label">Time</label>
+					<label class="label">Starting time</label>
 					<div class="control">
 						<vue-timepicker v-model="time"></vue-timepicker>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Duration time</label>
+					<div class="control">
+						<vue-slider v-model="duration" :max="150"
+									formatter="{value} min"
+						></vue-slider>
 					</div>
 				</div>
 				<div class="field">
@@ -59,6 +67,8 @@
 <script>
 	import DatePicker from 'vue-datepicker'
 	import settings from '../models/datePickerConfig'
+
+	import vueSlider from 'vue-slider-component'
 
 	export default {
 		data() {
@@ -77,6 +87,7 @@
 						mm: ''
 					},
 					genre: '',
+					duration: 80
 				},
 				...settings
 			}
@@ -96,7 +107,8 @@
 						title: this.filmFields.title,
 						description: this.filmFields.description,
 						date: this.date.time,
-						time: `${this.time.HH}:${this.time.mm}`
+						time: `${this.time.HH}:${this.time.mm}`,
+						duration: this.duration
 					}
 				], this);
 				for (let field in this.filmFields) {
@@ -109,7 +121,8 @@
 		},
 		components: {
 			DatePicker,
-			VueTimepicker
+			VueTimepicker,
+			vueSlider
 		}
 	}
 </script>
