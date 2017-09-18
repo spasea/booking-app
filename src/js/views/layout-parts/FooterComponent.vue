@@ -1,6 +1,19 @@
 <template>
-	<div>
-		This is footer
+	<div class="container">
+		<div class="content has-text-centered">
+			<router-link
+				tag="button" key="Add Film"
+				class="button is-primary"
+				to="/add-film"
+				exact
+			>Add film</router-link>
+			<router-link
+				tag="button" key="Home"
+				class="button is-primary"
+				to="/"
+				exact
+			>Go home</router-link>
+		</div>
 	</div>
 </template>
 

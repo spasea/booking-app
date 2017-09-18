@@ -9,24 +9,49 @@ webpackJsonp([2],{
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _film = __webpack_require__(253);
+
+var _film2 = _interopRequireDefault(_film);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
 	data: function data() {
 		return {
-			title: 'Home 123'
+			filmsList: ls.get('films', this)
 		};
+	},
+
+	computed: {
+		film: _film2.default
 	}
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 
@@ -34,15 +59,45 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v(_vm._s(_vm.title) + "\n\t"), _c('router-link', {
-    key: "Add Film",
+  return _c('div', {
+    staticClass: "container"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "columns"
+  }, _vm._l((_vm.filmsList), function(item, index) {
+    return _c('div', {
+      staticClass: "column center-content"
+    }, [_c('router-link', {
+      key: index,
+      attrs: {
+        "tag": "a",
+        "to": "/order-ticket",
+        "exact": ""
+      },
+      nativeOn: {
+        "click": function($event) {
+          _vm.film = item.id
+        }
+      }
+    }, [_c('img', {
+      staticClass: "film-preview film-preview--large",
+      attrs: {
+        "src": item.logo[0],
+        "alt": "film.title"
+      }
+    })])], 1)
+  }))])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('nav', {
+    staticClass: "breadcrumb",
     attrs: {
-      "tag": "a",
-      "to": "/add-film",
-      "exact": ""
+      "aria-label": "breadcrumbs"
     }
-  }, [_vm._v("add film")])], 1)
-},staticRenderFns: []}
+  }, [_c('ul', [_c('li', [_c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("Movies")])])])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -50,6 +105,26 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-61b0919b", module.exports)
   }
 }
+
+/***/ }),
+
+/***/ 253:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	get: function get() {
+		return store.getters.filmId;
+	},
+	set: function set(id) {
+		store.dispatch('filmId', id);
+	}
+};
 
 /***/ }),
 

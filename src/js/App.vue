@@ -8,7 +8,7 @@
 			<router-view></router-view>
 		</main>
 
-		<footer>
+		<footer class="footer">
 			<footer-component></footer-component>
 		</footer>
 	</div>

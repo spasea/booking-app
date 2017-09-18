@@ -13305,6 +13305,10 @@ var routes = [{
 	name: 'AddFilm',
 	path: '/add-film',
 	component: view('AddFilm')
+}, {
+	name: 'OrderTicket',
+	path: '/order-ticket',
+	component: view('OrderTicket')
 }];
 
 /**
@@ -13327,11 +13331,15 @@ exports.default = routes;
 var map = {
 	"./AddFilm.vue": [
 		33,
-		0
+		4
 	],
 	"./Home.vue": [
 		34,
-		2
+		5
+	],
+	"./OrderTicket.vue": [
+		254,
+		7
 	],
 	"./layout-parts/FooterComponent.vue": [
 		2
@@ -13341,7 +13349,7 @@ var map = {
 	],
 	"./tmp.vue": [
 		35,
-		1
+		6
 	]
 };
 function webpackAsyncContext(req) {
@@ -13374,6 +13382,19 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
 	data: function data() {
@@ -13386,7 +13407,27 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n\tThis is footer\n")])
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "content has-text-centered"
+  }, [_c('router-link', {
+    key: "Add Film",
+    staticClass: "button is-primary",
+    attrs: {
+      "tag": "button",
+      "to": "/add-film",
+      "exact": ""
+    }
+  }, [_vm._v("Add film")]), _vm._v(" "), _c('router-link', {
+    key: "Home",
+    staticClass: "button is-primary",
+    attrs: {
+      "tag": "button",
+      "to": "/",
+      "exact": ""
+    }
+  }, [_vm._v("Go home")])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -31522,6 +31563,7 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./film.js": 252,
 	"./modules.js": 6,
 	"./tmp.js": 24
 };
@@ -32045,7 +32087,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('header', [_c('header-component')], 1), _vm._v(" "), _c('main', {
     staticClass: "main"
-  }, [_c('router-view')], 1), _vm._v(" "), _c('footer', [_c('footer-component')], 1)])
+  }, [_c('router-view')], 1), _vm._v(" "), _c('footer', {
+    staticClass: "footer"
+  }, [_c('footer-component')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -33747,6 +33791,58 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-3a73f1f6", module.exports)
   }
 }
+
+/***/ }),
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var state = {
+	filmId: 1
+};
+
+var mutations = {
+	changeFilm: function changeFilm(state, id) {
+		state.filmId = id;
+	}
+};
+
+var getters = {
+	filmId: function filmId() {
+		return state.filmId;
+	}
+};
+
+var actions = {
+	filmId: function filmId(_ref, id) {
+		var commit = _ref.commit;
+
+		commit('changeFilm', id);
+	}
+};
+
+exports.default = {
+	state: state,
+	mutations: mutations,
+	getters: getters,
+	actions: actions
+};
 
 /***/ })
 /******/ ]);

@@ -8,6 +8,11 @@ let routes = [
 		name: 'AddFilm',
 		path: '/add-film',
 		component: view('AddFilm'),
+	},
+	{
+		name: 'OrderTicket',
+		path: '/order-ticket',
+		component: view('OrderTicket'),
 	}
 ];
 

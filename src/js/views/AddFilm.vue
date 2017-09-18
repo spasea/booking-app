@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<div class="columns">
 			<section class="column is-half is-offset-one-quarter">
 				{{ title }}
@@ -53,8 +53,9 @@
 					</div>
 				</div>
 				<div class="field">
-					<img :src="image" style="width: 100px; height: 100px; object-fit: cover"
+					<img :src="image"
 						 v-for="image in logo"
+						 class="film-preview"
 					>
 				</div>
 				<div class="field">
@@ -177,6 +178,9 @@
 				for (let field in this.filmFields) {
 					this.filmFields[field] = '';
 				}
+				this.logo = [];
+				this.fileNames = ['empty...'];
+				this.photosNumber = 0;
 			},
 			preventEvents(e) {
 				e.preventDefault();

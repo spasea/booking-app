@@ -7,6 +7,31 @@
 	min-height: 100vh;
 }
 
+.footer {
+	margin-top: 20px;
+}
+
+.film-preview {
+	&--large {
+		height: 300px;
+		width: 200px;
+	}
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+.center-content {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: start;
+	justify-content: center;
+}
+
+.is-wrapped {
+	flex-wrap: wrap;
+}
+
 .main {
 	flex-grow: 1;
 }
