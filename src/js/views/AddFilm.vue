@@ -43,6 +43,7 @@
 				<div class="field">
 					<label class="label">Time</label>
 					<div class="control">
+						<vue-timepicker v-model="time"></vue-timepicker>
 					</div>
 				</div>
 				<div class="field">
@@ -59,6 +60,8 @@
 	import DatePicker from 'vue-datepicker'
 	import settings from '../models/datePickerConfig'
 
+	import VueClockPicker from 'vue-clock-picker'
+
 	export default {
 		data() {
 			return {
@@ -67,10 +70,13 @@
 					filmFields: {
 						title: '',
 						description: '',
-						time: ''
 					},
 					date: {
 						time: ''
+					},
+					time: {
+						HH: '',
+						mm: ''
 					},
 					genre: '',
 				},
@@ -91,7 +97,8 @@
 						categoryId: this.genre,
 						title: this.filmFields.title,
 						description: this.filmFields.description,
-						date: this.date.time
+						date: this.date.time,
+						time: `${this.time.HH}:${this.time.mm}`
 					}
 				], this);
 				for (let field in this.filmFields) {
@@ -103,7 +110,9 @@
 			this.genre = this.genres[0]['id'];
 		},
 		components: {
-			DatePicker
+			DatePicker,
+			VueClockPicker,
+			VueTimepicker
 		}
 	}
 </script>

@@ -20,3 +20,7 @@ window.ls = localstorage;
 import VueConfigManager from 'vue-config-manager'
 import settings from './settings'
 Vue.use(VueConfigManager, settings);
+
+import VueTimepicker from 'vue2-timepicker'
+Vue.use(VueTimepicker);
+window.VueTimepicker = VueTimepicker;

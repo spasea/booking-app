@@ -1,13 +1,13 @@
-webpackJsonp([0],Array(32).concat([
-/* 32 */
+webpackJsonp([0],Array(33).concat([
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(152),
+  __webpack_require__(154),
   /* template */
-  __webpack_require__(162),
+  __webpack_require__(189),
   /* styles */
   null,
   /* scopeId */
@@ -36,88 +36,6 @@ if (false) {(function () {
 })()}
 
 module.exports = Component.exports
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
 
 
 /***/ }),
@@ -1955,7 +1873,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(159)("./" + name);
+            __webpack_require__(160)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4593,7 +4511,8 @@ return hooks;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)(module)))
 
 /***/ }),
-/* 37 */
+/* 37 */,
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4671,7 +4590,7 @@ return af;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4818,7 +4737,7 @@ return ar;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4882,7 +4801,7 @@ return arDz;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -4946,7 +4865,7 @@ return arKw;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5077,7 +4996,7 @@ return arLy;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5142,7 +5061,7 @@ return arMa;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5252,7 +5171,7 @@ return arSa;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5316,7 +5235,7 @@ return arTn;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5426,7 +5345,7 @@ return az;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5565,7 +5484,7 @@ return be;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5660,7 +5579,7 @@ return bg;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5784,7 +5703,7 @@ return bn;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5908,7 +5827,7 @@ return bo;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6021,7 +5940,7 @@ return br;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6169,7 +6088,7 @@ return bs;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6262,7 +6181,7 @@ return ca;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6439,7 +6358,7 @@ return cs;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6507,7 +6426,7 @@ return cv;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6593,7 +6512,7 @@ return cy;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6658,7 +6577,7 @@ return da;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6741,7 +6660,7 @@ return de;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6825,7 +6744,7 @@ return deAt;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6908,7 +6827,7 @@ return deCh;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7013,7 +6932,7 @@ return dv;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7118,7 +7037,7 @@ return el;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7190,7 +7109,7 @@ return enAu;
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7258,7 +7177,7 @@ return enCa;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7330,7 +7249,7 @@ return enGb;
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7402,7 +7321,7 @@ return enIe;
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7474,7 +7393,7 @@ return enNz;
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7552,7 +7471,7 @@ return eo;
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7640,7 +7559,7 @@ return es;
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7727,7 +7646,7 @@ return esDo;
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7812,7 +7731,7 @@ return et;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7883,7 +7802,7 @@ return eu;
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7995,7 +7914,7 @@ return fa;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8107,7 +8026,7 @@ return fi;
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8172,7 +8091,7 @@ return fo;
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8260,7 +8179,7 @@ return fr;
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8339,7 +8258,7 @@ return frCa;
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8422,7 +8341,7 @@ return frCh;
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8502,7 +8421,7 @@ return fy;
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8583,7 +8502,7 @@ return gd;
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8665,7 +8584,7 @@ return gl;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8792,7 +8711,7 @@ return gomLatn;
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8896,7 +8815,7 @@ return he;
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9025,7 +8944,7 @@ return hi;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9175,7 +9094,7 @@ return hr;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9289,7 +9208,7 @@ return hu;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9389,7 +9308,7 @@ return hyAm;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9477,7 +9396,7 @@ return id;
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9609,7 +9528,7 @@ return is;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9684,7 +9603,7 @@ return it;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9769,7 +9688,7 @@ return ja;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9857,7 +9776,7 @@ return jv;
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9951,7 +9870,7 @@ return ka;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10043,7 +9962,7 @@ return kk;
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10106,7 +10025,7 @@ return km;
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10237,7 +10156,7 @@ return kn;
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10311,7 +10230,7 @@ return ko;
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10404,7 +10323,7 @@ return ky;
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10546,7 +10465,7 @@ return lb;
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10621,7 +10540,7 @@ return lo;
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10743,7 +10662,7 @@ return lt;
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10845,7 +10764,7 @@ return lv;
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10961,7 +10880,7 @@ return me;
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11030,7 +10949,7 @@ return mi;
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11125,7 +11044,7 @@ return mk;
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11211,7 +11130,7 @@ return ml;
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11375,7 +11294,7 @@ return mr;
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11462,7 +11381,7 @@ return ms;
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11550,7 +11469,7 @@ return msMy;
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11651,7 +11570,7 @@ return my;
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11719,7 +11638,7 @@ return nb;
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11847,7 +11766,7 @@ return ne;
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11940,7 +11859,7 @@ return nl;
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12033,7 +11952,7 @@ return nlBe;
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12098,7 +12017,7 @@ return nn;
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12227,7 +12146,7 @@ return paIn;
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12339,7 +12258,7 @@ return pl;
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12409,7 +12328,7 @@ return pt;
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12475,7 +12394,7 @@ return ptBr;
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12555,7 +12474,7 @@ return ro;
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12743,7 +12662,7 @@ return ru;
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12846,7 +12765,7 @@ return sd;
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12912,7 +12831,7 @@ return se;
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12988,7 +12907,7 @@ return si;
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13143,7 +13062,7 @@ return sk;
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13310,7 +13229,7 @@ return sl;
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13385,7 +13304,7 @@ return sq;
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13500,7 +13419,7 @@ return sr;
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13615,7 +13534,7 @@ return srCyrl;
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13709,7 +13628,7 @@ return ss;
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13783,7 +13702,7 @@ return sv;
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13847,7 +13766,7 @@ return sw;
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13982,7 +13901,7 @@ return ta;
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14076,7 +13995,7 @@ return te;
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14149,7 +14068,7 @@ return tet;
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14221,7 +14140,7 @@ return th;
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14288,7 +14207,7 @@ return tlPh;
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14413,7 +14332,7 @@ return tlh;
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14508,7 +14427,7 @@ return tr;
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14604,7 +14523,7 @@ return tzl;
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14667,7 +14586,7 @@ return tzm;
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14730,7 +14649,7 @@ return tzmLatn;
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14886,7 +14805,7 @@ return uk;
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14990,7 +14909,7 @@ return ur;
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15053,7 +14972,7 @@ return uz;
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15116,7 +15035,7 @@ return uzLatn;
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15200,7 +15119,7 @@ return vi;
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15273,7 +15192,7 @@ return xPseudo;
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15338,7 +15257,7 @@ return yo;
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15454,7 +15373,7 @@ return zhCn;
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15564,7 +15483,7 @@ return zhHk;
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15673,7 +15592,16 @@ return zhTw;
 
 
 /***/ }),
-/* 152 */
+/* 153 */
+/***/ (function(module, exports) {
+
+module.exports.HOUR = new Array(24 + 1).join('0').split('')
+module.exports.TWELVE_HOURS = new Array(12 + 1).join('0').split('')
+module.exports.MINUTES = new Array(60 + 1).join('0').split('')
+
+
+/***/ }),
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15740,14 +15668,19 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
-var _vueDatepicker = __webpack_require__(153);
+var _vueDatepicker = __webpack_require__(155);
 
 var _vueDatepicker2 = _interopRequireDefault(_vueDatepicker);
 
-var _datePickerConfig = __webpack_require__(161);
+var _datePickerConfig = __webpack_require__(162);
 
 var _datePickerConfig2 = _interopRequireDefault(_datePickerConfig);
+
+var _vueClockPicker = __webpack_require__(163);
+
+var _vueClockPicker2 = _interopRequireDefault(_vueClockPicker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15757,11 +15690,14 @@ exports.default = {
 			title: 'AddFilm',
 			filmFields: {
 				title: '',
-				description: '',
-				time: ''
+				description: ''
 			},
 			date: {
 				time: ''
+			},
+			time: {
+				HH: '',
+				mm: ''
 			},
 			genre: ''
 		}, _datePickerConfig2.default);
@@ -15780,7 +15716,8 @@ exports.default = {
 				categoryId: this.genre,
 				title: this.filmFields.title,
 				description: this.filmFields.description,
-				date: this.date.time
+				date: this.date.time,
+				time: this.time.HH + ':' + this.time.mm
 			}], this);
 			for (var field in this.filmFields) {
 				this.filmFields[field] = '';
@@ -15792,24 +15729,26 @@ exports.default = {
 	},
 
 	components: {
-		DatePicker: _vueDatepicker2.default
+		DatePicker: _vueDatepicker2.default,
+		VueClockPicker: _vueClockPicker2.default,
+		VueTimepicker: VueTimepicker
 	}
 };
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(154)
+  __webpack_require__(156)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(158),
+  __webpack_require__(159),
   /* template */
-  __webpack_require__(160),
+  __webpack_require__(161),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -15841,17 +15780,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(155);
+var content = __webpack_require__(157);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(156)("d054a228", content, false);
+var update = __webpack_require__(37)("d054a228", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -15867,10 +15806,10 @@ if(false) {
 }
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(33)(undefined);
+exports = module.exports = __webpack_require__(32)(undefined);
 // imports
 
 
@@ -15881,261 +15820,8 @@ exports.push([module.i, "\n.datepicker-overlay[data-v-3dd1803a] {\n  position: f
 
 
 /***/ }),
-/* 156 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(157)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction) {
-  isProduction = _isProduction
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 157 */
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-
-/***/ }),
-/* 158 */
+/* 158 */,
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16971,240 +16657,240 @@ exports.default = {
 };
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 37,
-	"./af.js": 37,
-	"./ar": 38,
-	"./ar-dz": 39,
-	"./ar-dz.js": 39,
-	"./ar-kw": 40,
-	"./ar-kw.js": 40,
-	"./ar-ly": 41,
-	"./ar-ly.js": 41,
-	"./ar-ma": 42,
-	"./ar-ma.js": 42,
-	"./ar-sa": 43,
-	"./ar-sa.js": 43,
-	"./ar-tn": 44,
-	"./ar-tn.js": 44,
-	"./ar.js": 38,
-	"./az": 45,
-	"./az.js": 45,
-	"./be": 46,
-	"./be.js": 46,
-	"./bg": 47,
-	"./bg.js": 47,
-	"./bn": 48,
-	"./bn.js": 48,
-	"./bo": 49,
-	"./bo.js": 49,
-	"./br": 50,
-	"./br.js": 50,
-	"./bs": 51,
-	"./bs.js": 51,
-	"./ca": 52,
-	"./ca.js": 52,
-	"./cs": 53,
-	"./cs.js": 53,
-	"./cv": 54,
-	"./cv.js": 54,
-	"./cy": 55,
-	"./cy.js": 55,
-	"./da": 56,
-	"./da.js": 56,
-	"./de": 57,
-	"./de-at": 58,
-	"./de-at.js": 58,
-	"./de-ch": 59,
-	"./de-ch.js": 59,
-	"./de.js": 57,
-	"./dv": 60,
-	"./dv.js": 60,
-	"./el": 61,
-	"./el.js": 61,
-	"./en-au": 62,
-	"./en-au.js": 62,
-	"./en-ca": 63,
-	"./en-ca.js": 63,
-	"./en-gb": 64,
-	"./en-gb.js": 64,
-	"./en-ie": 65,
-	"./en-ie.js": 65,
-	"./en-nz": 66,
-	"./en-nz.js": 66,
-	"./eo": 67,
-	"./eo.js": 67,
-	"./es": 68,
-	"./es-do": 69,
-	"./es-do.js": 69,
-	"./es.js": 68,
-	"./et": 70,
-	"./et.js": 70,
-	"./eu": 71,
-	"./eu.js": 71,
-	"./fa": 72,
-	"./fa.js": 72,
-	"./fi": 73,
-	"./fi.js": 73,
-	"./fo": 74,
-	"./fo.js": 74,
-	"./fr": 75,
-	"./fr-ca": 76,
-	"./fr-ca.js": 76,
-	"./fr-ch": 77,
-	"./fr-ch.js": 77,
-	"./fr.js": 75,
-	"./fy": 78,
-	"./fy.js": 78,
-	"./gd": 79,
-	"./gd.js": 79,
-	"./gl": 80,
-	"./gl.js": 80,
-	"./gom-latn": 81,
-	"./gom-latn.js": 81,
-	"./he": 82,
-	"./he.js": 82,
-	"./hi": 83,
-	"./hi.js": 83,
-	"./hr": 84,
-	"./hr.js": 84,
-	"./hu": 85,
-	"./hu.js": 85,
-	"./hy-am": 86,
-	"./hy-am.js": 86,
-	"./id": 87,
-	"./id.js": 87,
-	"./is": 88,
-	"./is.js": 88,
-	"./it": 89,
-	"./it.js": 89,
-	"./ja": 90,
-	"./ja.js": 90,
-	"./jv": 91,
-	"./jv.js": 91,
-	"./ka": 92,
-	"./ka.js": 92,
-	"./kk": 93,
-	"./kk.js": 93,
-	"./km": 94,
-	"./km.js": 94,
-	"./kn": 95,
-	"./kn.js": 95,
-	"./ko": 96,
-	"./ko.js": 96,
-	"./ky": 97,
-	"./ky.js": 97,
-	"./lb": 98,
-	"./lb.js": 98,
-	"./lo": 99,
-	"./lo.js": 99,
-	"./lt": 100,
-	"./lt.js": 100,
-	"./lv": 101,
-	"./lv.js": 101,
-	"./me": 102,
-	"./me.js": 102,
-	"./mi": 103,
-	"./mi.js": 103,
-	"./mk": 104,
-	"./mk.js": 104,
-	"./ml": 105,
-	"./ml.js": 105,
-	"./mr": 106,
-	"./mr.js": 106,
-	"./ms": 107,
-	"./ms-my": 108,
-	"./ms-my.js": 108,
-	"./ms.js": 107,
-	"./my": 109,
-	"./my.js": 109,
-	"./nb": 110,
-	"./nb.js": 110,
-	"./ne": 111,
-	"./ne.js": 111,
-	"./nl": 112,
-	"./nl-be": 113,
-	"./nl-be.js": 113,
-	"./nl.js": 112,
-	"./nn": 114,
-	"./nn.js": 114,
-	"./pa-in": 115,
-	"./pa-in.js": 115,
-	"./pl": 116,
-	"./pl.js": 116,
-	"./pt": 117,
-	"./pt-br": 118,
-	"./pt-br.js": 118,
-	"./pt.js": 117,
-	"./ro": 119,
-	"./ro.js": 119,
-	"./ru": 120,
-	"./ru.js": 120,
-	"./sd": 121,
-	"./sd.js": 121,
-	"./se": 122,
-	"./se.js": 122,
-	"./si": 123,
-	"./si.js": 123,
-	"./sk": 124,
-	"./sk.js": 124,
-	"./sl": 125,
-	"./sl.js": 125,
-	"./sq": 126,
-	"./sq.js": 126,
-	"./sr": 127,
-	"./sr-cyrl": 128,
-	"./sr-cyrl.js": 128,
-	"./sr.js": 127,
-	"./ss": 129,
-	"./ss.js": 129,
-	"./sv": 130,
-	"./sv.js": 130,
-	"./sw": 131,
-	"./sw.js": 131,
-	"./ta": 132,
-	"./ta.js": 132,
-	"./te": 133,
-	"./te.js": 133,
-	"./tet": 134,
-	"./tet.js": 134,
-	"./th": 135,
-	"./th.js": 135,
-	"./tl-ph": 136,
-	"./tl-ph.js": 136,
-	"./tlh": 137,
-	"./tlh.js": 137,
-	"./tr": 138,
-	"./tr.js": 138,
-	"./tzl": 139,
-	"./tzl.js": 139,
-	"./tzm": 140,
-	"./tzm-latn": 141,
-	"./tzm-latn.js": 141,
-	"./tzm.js": 140,
-	"./uk": 142,
-	"./uk.js": 142,
-	"./ur": 143,
-	"./ur.js": 143,
-	"./uz": 144,
-	"./uz-latn": 145,
-	"./uz-latn.js": 145,
-	"./uz.js": 144,
-	"./vi": 146,
-	"./vi.js": 146,
-	"./x-pseudo": 147,
-	"./x-pseudo.js": 147,
-	"./yo": 148,
-	"./yo.js": 148,
-	"./zh-cn": 149,
-	"./zh-cn.js": 149,
-	"./zh-hk": 150,
-	"./zh-hk.js": 150,
-	"./zh-tw": 151,
-	"./zh-tw.js": 151
+	"./af": 38,
+	"./af.js": 38,
+	"./ar": 39,
+	"./ar-dz": 40,
+	"./ar-dz.js": 40,
+	"./ar-kw": 41,
+	"./ar-kw.js": 41,
+	"./ar-ly": 42,
+	"./ar-ly.js": 42,
+	"./ar-ma": 43,
+	"./ar-ma.js": 43,
+	"./ar-sa": 44,
+	"./ar-sa.js": 44,
+	"./ar-tn": 45,
+	"./ar-tn.js": 45,
+	"./ar.js": 39,
+	"./az": 46,
+	"./az.js": 46,
+	"./be": 47,
+	"./be.js": 47,
+	"./bg": 48,
+	"./bg.js": 48,
+	"./bn": 49,
+	"./bn.js": 49,
+	"./bo": 50,
+	"./bo.js": 50,
+	"./br": 51,
+	"./br.js": 51,
+	"./bs": 52,
+	"./bs.js": 52,
+	"./ca": 53,
+	"./ca.js": 53,
+	"./cs": 54,
+	"./cs.js": 54,
+	"./cv": 55,
+	"./cv.js": 55,
+	"./cy": 56,
+	"./cy.js": 56,
+	"./da": 57,
+	"./da.js": 57,
+	"./de": 58,
+	"./de-at": 59,
+	"./de-at.js": 59,
+	"./de-ch": 60,
+	"./de-ch.js": 60,
+	"./de.js": 58,
+	"./dv": 61,
+	"./dv.js": 61,
+	"./el": 62,
+	"./el.js": 62,
+	"./en-au": 63,
+	"./en-au.js": 63,
+	"./en-ca": 64,
+	"./en-ca.js": 64,
+	"./en-gb": 65,
+	"./en-gb.js": 65,
+	"./en-ie": 66,
+	"./en-ie.js": 66,
+	"./en-nz": 67,
+	"./en-nz.js": 67,
+	"./eo": 68,
+	"./eo.js": 68,
+	"./es": 69,
+	"./es-do": 70,
+	"./es-do.js": 70,
+	"./es.js": 69,
+	"./et": 71,
+	"./et.js": 71,
+	"./eu": 72,
+	"./eu.js": 72,
+	"./fa": 73,
+	"./fa.js": 73,
+	"./fi": 74,
+	"./fi.js": 74,
+	"./fo": 75,
+	"./fo.js": 75,
+	"./fr": 76,
+	"./fr-ca": 77,
+	"./fr-ca.js": 77,
+	"./fr-ch": 78,
+	"./fr-ch.js": 78,
+	"./fr.js": 76,
+	"./fy": 79,
+	"./fy.js": 79,
+	"./gd": 80,
+	"./gd.js": 80,
+	"./gl": 81,
+	"./gl.js": 81,
+	"./gom-latn": 82,
+	"./gom-latn.js": 82,
+	"./he": 83,
+	"./he.js": 83,
+	"./hi": 84,
+	"./hi.js": 84,
+	"./hr": 85,
+	"./hr.js": 85,
+	"./hu": 86,
+	"./hu.js": 86,
+	"./hy-am": 87,
+	"./hy-am.js": 87,
+	"./id": 88,
+	"./id.js": 88,
+	"./is": 89,
+	"./is.js": 89,
+	"./it": 90,
+	"./it.js": 90,
+	"./ja": 91,
+	"./ja.js": 91,
+	"./jv": 92,
+	"./jv.js": 92,
+	"./ka": 93,
+	"./ka.js": 93,
+	"./kk": 94,
+	"./kk.js": 94,
+	"./km": 95,
+	"./km.js": 95,
+	"./kn": 96,
+	"./kn.js": 96,
+	"./ko": 97,
+	"./ko.js": 97,
+	"./ky": 98,
+	"./ky.js": 98,
+	"./lb": 99,
+	"./lb.js": 99,
+	"./lo": 100,
+	"./lo.js": 100,
+	"./lt": 101,
+	"./lt.js": 101,
+	"./lv": 102,
+	"./lv.js": 102,
+	"./me": 103,
+	"./me.js": 103,
+	"./mi": 104,
+	"./mi.js": 104,
+	"./mk": 105,
+	"./mk.js": 105,
+	"./ml": 106,
+	"./ml.js": 106,
+	"./mr": 107,
+	"./mr.js": 107,
+	"./ms": 108,
+	"./ms-my": 109,
+	"./ms-my.js": 109,
+	"./ms.js": 108,
+	"./my": 110,
+	"./my.js": 110,
+	"./nb": 111,
+	"./nb.js": 111,
+	"./ne": 112,
+	"./ne.js": 112,
+	"./nl": 113,
+	"./nl-be": 114,
+	"./nl-be.js": 114,
+	"./nl.js": 113,
+	"./nn": 115,
+	"./nn.js": 115,
+	"./pa-in": 116,
+	"./pa-in.js": 116,
+	"./pl": 117,
+	"./pl.js": 117,
+	"./pt": 118,
+	"./pt-br": 119,
+	"./pt-br.js": 119,
+	"./pt.js": 118,
+	"./ro": 120,
+	"./ro.js": 120,
+	"./ru": 121,
+	"./ru.js": 121,
+	"./sd": 122,
+	"./sd.js": 122,
+	"./se": 123,
+	"./se.js": 123,
+	"./si": 124,
+	"./si.js": 124,
+	"./sk": 125,
+	"./sk.js": 125,
+	"./sl": 126,
+	"./sl.js": 126,
+	"./sq": 127,
+	"./sq.js": 127,
+	"./sr": 128,
+	"./sr-cyrl": 129,
+	"./sr-cyrl.js": 129,
+	"./sr.js": 128,
+	"./ss": 130,
+	"./ss.js": 130,
+	"./sv": 131,
+	"./sv.js": 131,
+	"./sw": 132,
+	"./sw.js": 132,
+	"./ta": 133,
+	"./ta.js": 133,
+	"./te": 134,
+	"./te.js": 134,
+	"./tet": 135,
+	"./tet.js": 135,
+	"./th": 136,
+	"./th.js": 136,
+	"./tl-ph": 137,
+	"./tl-ph.js": 137,
+	"./tlh": 138,
+	"./tlh.js": 138,
+	"./tr": 139,
+	"./tr.js": 139,
+	"./tzl": 140,
+	"./tzl.js": 140,
+	"./tzm": 141,
+	"./tzm-latn": 142,
+	"./tzm-latn.js": 142,
+	"./tzm.js": 141,
+	"./uk": 143,
+	"./uk.js": 143,
+	"./ur": 144,
+	"./ur.js": 144,
+	"./uz": 145,
+	"./uz-latn": 146,
+	"./uz-latn.js": 146,
+	"./uz.js": 145,
+	"./vi": 147,
+	"./vi.js": 147,
+	"./x-pseudo": 148,
+	"./x-pseudo.js": 148,
+	"./yo": 149,
+	"./yo.js": 149,
+	"./zh-cn": 150,
+	"./zh-cn.js": 150,
+	"./zh-hk": 151,
+	"./zh-hk.js": 151,
+	"./zh-tw": 152,
+	"./zh-tw.js": 152
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -17220,10 +16906,10 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 159;
+webpackContext.id = 160;
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17426,7 +17112,7 @@ if (false) {
 }
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17462,7 +17148,1046 @@ exports.default = {
 };
 
 /***/ }),
-/* 162 */
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(164)
+
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(165)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(167),
+  /* template */
+  __webpack_require__(188),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "C:\\OpenServer\\domains\\booking-app\\node_modules\\vue-clock-picker\\src\\components\\TimePicker.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TimePicker.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9854019a", Component.options)
+  } else {
+    hotAPI.reload("data-v-9854019a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(166);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("980ab930", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9854019a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePicker.vue", function() {
+     var newContent = require("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9854019a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePicker.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(32)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.time-picker-container {\n  position: relative;\n}\n.time-picker-preview {\n\tposition: relative;\n  \tcursor: pointer;\n  \theight: 50px;\n\twidth: 300px;\n  \tcolor: #343434;\n  \tborder-radius: 2px;\n  \tbackground-color: #fff;\n  \ttransition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);\n\tbox-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);\n}\n.time-picker-preview.active,\n.time-picker-preview:hover {\n  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);\n}\n.time-picker-preview.active {\n  color: #fff;\n  background-color: #3498db;\n}\n.preview-container {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 40px;\n  line-height: 40px;\n  /*padding-left: 30px;*/\n  transform: translate(-50%, -50%);\n  font-size: 2rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _OutsideClickHandler = __webpack_require__(168);
+
+var _OutsideClickHandler2 = _interopRequireDefault(_OutsideClickHandler);
+
+var _TimePickerModal = __webpack_require__(173);
+
+var _TimePickerModal2 = _interopRequireDefault(_TimePickerModal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  components: {
+    OutsideClickHandler: _OutsideClickHandler2.default,
+    TimePickerModal: _TimePickerModal2.default
+  },
+  props: {
+    mode: {
+      type: [String, Number],
+      default: '24',
+      validator: function validator(value) {
+        return value == 24 || value == 12;
+      }
+    },
+    defaultHour: {
+      type: [String, Number],
+      default: new Date().getHours(),
+      validator: function validator(value) {
+        return value >= 0 && value < 24;
+      }
+    },
+    defaultMinute: {
+      type: [String, Number],
+      default: new Date().getMinutes(),
+      validator: function validator(value) {
+        return value >= 0 && value < 60;
+      }
+    },
+    defaultFocused: {
+      type: Boolean,
+      default: false
+    },
+    onFocusChange: {
+      type: Function,
+      default: function _default() {}
+    },
+    onHourChange: {
+      type: Function,
+      default: function _default() {}
+    },
+    onMinuteChange: {
+      type: Function,
+      default: function _default() {}
+    },
+    onTimeChange: {
+      type: Function,
+      default: function _default() {}
+    }
+  },
+  data: function data() {
+    return {
+      hour: this.defaultHour,
+      minute: this.defaultMinute,
+      focused: this.defaultFocused,
+      overElement: false
+    };
+  },
+
+  computed: {
+    hourString: function hourString() {
+      return this.hour < 10 ? '0' + this.hour : this.hour + '';
+    },
+    minuteString: function minuteString() {
+      return this.minute < 10 ? '0' + this.minute : this.minute + '';
+    }
+  },
+  methods: {
+    onFocus: function onFocus() {
+      this.focused = true;
+      this.onFocusChange && this.onFocusChange(true);
+    },
+    onClearFocus: function onClearFocus() {
+      !this.overElement && (this.focused = false);
+      !this.overElement && this.onFocusChange && this.onFocusChange(false);
+    },
+    toggleFocus: function toggleFocus() {
+      this.focused = !this.focused;
+      this.onFocusChange && this.onFocusChange(this.focused);
+    },
+    handleHourChange: function handleHourChange(hour) {
+      this.hour = hour;
+      this.onHourChange && this.onHourChange(this.hour);
+      this.handleTimeChange({
+        hour: this.hour
+      });
+    },
+    handleMinuteChange: function handleMinuteChange(minute) {
+      this.minute = minute;
+      this.onMinuteChange && this.onMinuteChange(this.minute);
+      this.handleTimeChange({
+        minute: this.minute
+      });
+    },
+    handleTimeChange: function handleTimeChange(timeObj) {
+      this.hour = timeObj['hour'] ? timeObj['hour'] : this.hour;
+      this.minute = timeObj['minute'] ? timeObj['minute'] : this.minute;
+      this.onTimeChange && this.onTimeChange({
+        hour: this.hour,
+        minute: this.minute
+      });
+    }
+  }
+};
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(169)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(171),
+  /* template */
+  __webpack_require__(172),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "C:\\OpenServer\\domains\\booking-app\\node_modules\\vue-clock-picker\\src\\components\\OutsideClickHandler.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] OutsideClickHandler.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-035ef4c2", Component.options)
+  } else {
+    hotAPI.reload("data-v-035ef4c2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(170);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("4a4ace33", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-035ef4c2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./OutsideClickHandler.vue", function() {
+     var newContent = require("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-035ef4c2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./OutsideClickHandler.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(32)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.outside-click-container {\n  width:300px;\n  height : 405px;\n  position: absolute;\n  opacity: 1;\n  z-index: 2;\n  top: 100%;\n  left: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  props: {
+    onOutsideClick: {
+      type: Function,
+      default: function _default() {}
+    },
+    focused: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      overModal: false
+    };
+  },
+
+  methods: {
+    onOutsideClickHandler: function onOutsideClickHandler(e) {
+      if (!this.overModal && this.focused) {
+        this.onOutsideClick && this.onOutsideClick();
+      }
+    }
+  },
+  mounted: function mounted() {
+    document.addEventListener('click', this.onOutsideClickHandler);
+  },
+  deforeDestroy: function deforeDestroy() {
+    document.removeEventListener('click', this.onOutsideClickHandler);
+  }
+};
+
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    ref: "childnode",
+    staticClass: "outside-click-container",
+    on: {
+      "mouseover": function($event) {
+        _vm.overModal = true
+      },
+      "mouseout": function($event) {
+        _vm.overModal = false
+      }
+    }
+  }, [_vm._t("modal")], 2)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-035ef4c2", module.exports)
+  }
+}
+
+/***/ }),
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(174)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(176),
+  /* template */
+  __webpack_require__(187),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "C:\\OpenServer\\domains\\booking-app\\node_modules\\vue-clock-picker\\src\\components\\TimePickerModal.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TimePickerModal.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7d250aea", Component.options)
+  } else {
+    hotAPI.reload("data-v-7d250aea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(175);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("ee4694d6", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d250aea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePickerModal.vue", function() {
+     var newContent = require("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d250aea\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePickerModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(32)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.time-picker-modal-container {\n\twidth:250px;\n  /*position: absolute;*/\n  opacity: 1;\n  z-index: 2;\n  padding: 25px;\n  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);\n  background-color: #fff;\n  border-radius: 2px;\n  top: 100%;\n  left: 0;\n  transform: translateY(20px);\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);\n}\n.time-picker-modal-container:hover{\n\tbox-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);\n}\n.time-picker-modal-header {\n  height: 80px;\n  line-height: 40px;\n  text-align: center;\n  font-size: 2.5em;\n  position: relative;\n}\n.time-picker-modal-header .time-picker-header {\n  cursor: pointer;\n}\n.time-picker-modal-header .time-picker-header.active {\n  color: #3498db;\n  cursor: default;\n}\n.time-picker-modal-header .time-picker-header:hover {\n  color: #3498db;\n}\n.picker-container {\n  width: 250px;\n  height: 250px;\n  border-radius: 50%;\n  background-color: #e5e5e5;\n  position: relative;\n}\n.picker-center {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background-color: #3498db;\n  transform: translate(-50%, -50%);\n}\n.picker-pointer {\n  position: absolute;\n  width: 4px;\n  height: 110px;\n  left: 50%;\n  top: 20px;\n  background-color: #3498db;\n  transform-origin: center bottom;\n}\n.picker-pointer.animation {\n  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _constValues = __webpack_require__(153);
+
+var _TimePickerGenerator = __webpack_require__(177);
+
+var _TimePickerGenerator2 = _interopRequireDefault(_TimePickerGenerator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  props: {
+    initStep: {
+      type: Number,
+      default: 0
+    },
+    initHour: {
+      type: [Number, String],
+      default: '00'
+    },
+    initMinute: {
+      type: [Number, String],
+      default: '00'
+    },
+    handleHourChange: {
+      type: Function,
+      default: function _default() {}
+    },
+    handleMinuteChange: {
+      type: Function,
+      default: function _default() {}
+    }
+  },
+  data: function data() {
+    var _this = this;
+
+    return {
+      step: this.initStep,
+      pointerRotate: function pointerRotate() {
+        _this.resetHourDegree();
+      },
+      hour: this.initHour,
+      minute: this.initMinute
+    };
+  },
+
+  computed: {
+    timeType: function timeType() {
+      return this.step == 0 ? 'hour' : 'minute';
+    },
+    hourString: function hourString() {
+      return this.hour < 10 ? '0' + this.hour : this.hour;
+    },
+    minuteString: function minuteString() {
+      return this.minute < 10 ? '0' + this.minute : this.minute;
+    }
+  },
+  components: {
+    TimePickerGenerator: _TimePickerGenerator2.default
+  },
+  methods: {
+    handleStepChange: function handleStepChange(s) {
+      if (s != this.step) {
+        this.step = s;
+        this.pointerRotate = s == 0 ? this.resetHourDegree() : this.resetMinuteDegree();
+      }
+    },
+    handleTimePointerClick: function handleTimePointerClick(time, rotate) {
+      this.pointerRotate = rotate;
+      this.handleTimeChange(time);
+      console.log('time changed');
+    },
+    handleTimeChange: function handleTimeChange(time) {
+      time = parseInt(time);
+      if (this.step == 0) {
+        this.hour = time;
+        this.handleHourChange && this.handleHourChange(time);
+      } else {
+        this.minute = time;
+        this.handleMinuteChange && this.handleMinuteChange(time);
+      }
+    },
+    resetHourDegree: function resetHourDegree() {
+      var h = parseInt(this.hour);
+      var pointerR = 0;
+      _constValues.HOURS.forEach(function (hour, index) {
+        if (h === index + 1) {
+          pointerR = index < 12 ? 360 * (index + 1) / 12 : 360 * (index + 1 - 12) / 12;
+        }
+      });
+      return pointerR;
+    },
+    resetMinuteDegree: function resetMinuteDegree() {
+      var m = parseInt(this.minute);
+      var pointerR = 0;
+      _constValues.MINUTES.forEach(function (minute, index) {
+        if (m === index) {
+          pointerR = 360 * index / 60;
+        }
+      });
+      return pointerR;
+    }
+  }
+};
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(178)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(180),
+  /* template */
+  __webpack_require__(186),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "C:\\OpenServer\\domains\\booking-app\\node_modules\\vue-clock-picker\\src\\components\\TimePickerGenerator.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] TimePickerGenerator.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-72be8d90", Component.options)
+  } else {
+    hotAPI.reload("data-v-72be8d90", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(179);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("2810e59a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72be8d90\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePickerGenerator.vue", function() {
+     var newContent = require("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-72be8d90\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./TimePickerGenerator.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(32)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n#picker-pointer-container {\n  opacity: 1;\n  transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);\n}\n#picker-pointer-container.animation {\n  opacity: 0;\n  transform: scale3d(0.85, 0.85, 1);\n}\n.interval-container {\n\ttransform: translateY(-150%);\n\ttransition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);\n}\n.time-picker-interval {\n  cursor: pointer;\n}\n.time-picker-interval.active {\n  color: #3498db;\n  cursor: default;\n}\n.time-picker-interval:hover {\n  color: #3498db;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _PickerPoints = __webpack_require__(181);
+
+var _PickerPoints2 = _interopRequireDefault(_PickerPoints);
+
+var _constValues = __webpack_require__(153);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  props: {
+    type: {
+      type: String,
+      default: 'hour'
+    },
+    mode: {
+      type: [Number, String],
+      default: 24
+    },
+    handleTimePointerClick: {
+      type: Function,
+      required: true,
+      default: function _default() {}
+    },
+    hour: {
+      type: [Number, String],
+      default: 0
+    },
+    minute: {
+      type: [Number, String],
+      default: 0
+    }
+  },
+  data: function data() {
+    return {
+      MINUTES: _constValues.MINUTES,
+      HOURS: _constValues.HOURS,
+      TWELVE_HOURS: _constValues.TWELVE_HOURS,
+      interval: this.hour < 12 ? 'AM' : 'PM'
+    };
+  },
+
+  components: {
+    PickerPoints: _PickerPoints2.default
+  },
+  methods: {
+    handleIntervalChange: function handleIntervalChange(itv) {
+      this.interval = itv;
+    }
+  }
+};
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(182)
+}
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(184),
+  /* template */
+  __webpack_require__(185),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "C:\\OpenServer\\domains\\booking-app\\node_modules\\vue-clock-picker\\src\\components\\PickerPoints.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] PickerPoints.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b6787cee", Component.options)
+  } else {
+    hotAPI.reload("data-v-b6787cee", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(183);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(37)("1453fab8", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b6787cee\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./PickerPoints.vue", function() {
+     var newContent = require("!!../../../css-loader/index.js!../../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b6787cee\",\"scoped\":false,\"hasInlineConfig\":true}!../../../vue-loader/lib/selector.js?type=styles&index=0!./PickerPoints.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(32)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.picker-point {\n  left: 50%;\n  cursor: pointer;\n  position: absolute;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 50%;\n}\n.picker-point.current{\n\tbackground-color:#3498db;\n\tcolor:#fff !important;\n\ttransition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);\n}\n.picker-point.point-outter {\n  top: 10px;\n  color: #5f5f5f;\n  transform-origin: center 115px;\n}\n.picker-point.point-inner {\n  top: 40px;\n  color: #a7a7a7;\n  transform-origin: center 90px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  props: {
+    index: {
+      type: Number
+    },
+    angle: {
+      type: Number
+    },
+    handleTimeChange: {
+      type: Function,
+      required: true,
+      default: function _default() {}
+    },
+    pointClass: {
+      type: String,
+      default: 'point-outter'
+    },
+    picked: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    getInlineRotateStyle: function getInlineRotateStyle(degree) {
+      return {
+        transform: 'translateX(-50%) rotate(' + degree + 'deg)'
+      };
+    },
+    getRotateStyle: function getRotateStyle(degree) {
+      return {
+        transform: 'rotate(' + degree + 'deg)'
+      };
+    }
+  },
+  computed: {
+    inlineStyle: function inlineStyle() {
+      return this.getInlineRotateStyle(this.angle);
+    },
+    wrapperStyle: function wrapperStyle() {
+      return this.getRotateStyle(-this.angle);
+    }
+  }
+};
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "picker-point",
+    class: [_vm.pointClass, {
+      current: _vm.picked
+    }],
+    style: (_vm.inlineStyle),
+    on: {
+      "click": function($event) {
+        _vm.handleTimeChange(_vm.index, _vm.angle)
+      }
+    }
+  }, [_c('div', {
+    staticClass: "pointer-wrapper",
+    style: (_vm.wrapperStyle)
+  }, [_vm._v(_vm._s(_vm.index))])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-b6787cee", module.exports)
+  }
+}
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [(_vm.type == 'minute') ? _c('div', {
+    attrs: {
+      "id": "picker-pointer-container"
+    }
+  }, _vm._l((_vm.MINUTES), function(m, i) {
+    return (i % 5 == 0) ? _c('picker-points', {
+      key: i,
+      attrs: {
+        "index": i,
+        "angle": 6 * i,
+        "handle-time-change": _vm.handleTimePointerClick,
+        "picked": i == _vm.minute
+      }
+    }) : _vm._e()
+  })) : _c('div', {
+    attrs: {
+      "id": "picker_pointer_container"
+    }
+  }, [_vm._l((_vm.TWELVE_HOURS), function(h, i) {
+    return _c('picker-points', {
+      key: _vm.interval == 'AM' ? i : i + 12,
+      attrs: {
+        "index": _vm.interval == 'AM' ? i : i + 12,
+        "angle": 30 * i,
+        "handle-time-change": _vm.handleTimePointerClick,
+        "picked": _vm.interval == 'AM' ? i == _vm.hour : (i + 12) == _vm.hour
+      }
+    })
+  }), _c('div', {
+    staticClass: "interval-container"
+  }, [_c('span', {
+    staticClass: "time-picker-interval",
+    class: {
+      active: _vm.interval == 'AM'
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleIntervalChange('AM')
+      }
+    }
+  }, [_vm._v("AM")]), _vm._v(" | "), _c('span', {
+    staticClass: "time-picker-interval",
+    class: {
+      active: _vm.interval == 'PM'
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleIntervalChange('PM')
+      }
+    }
+  }, [_vm._v("PM")])])], 2)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-72be8d90", module.exports)
+  }
+}
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "time-picker-modal-container"
+  }, [_c('div', {
+    staticClass: "time-picker-modal-header"
+  }, [_c('span', {
+    staticClass: "time-picker-header",
+    class: {
+      active: !_vm.step
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleStepChange(0)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.hourString))]), _vm._v(" : "), _c('span', {
+    staticClass: "time-picker-header",
+    class: {
+      active: _vm.step
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleStepChange(1)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.minuteString))])]), _c('div', {
+    staticClass: "picker-container"
+  }, [_c('time-picker-generator', {
+    attrs: {
+      "handle-time-pointer-click": _vm.handleTimePointerClick,
+      "type": _vm.timeType,
+      "hour": _vm.hour,
+      "minute": _vm.minute
+    }
+  })], 1)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7d250aea", module.exports)
+  }
+}
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "time-picker-container"
+  }, [_c('div', {
+    staticClass: "time-picker-preview",
+    class: {
+      active: _vm.focused
+    },
+    on: {
+      "click": _vm.toggleFocus,
+      "mouseover": function($event) {
+        _vm.overElement = true
+      },
+      "mouseout": function($event) {
+        _vm.overElement = false
+      }
+    }
+  }, [_c('div', {
+    staticClass: "preview-container"
+  }, [_vm._v("\n\t\t\t" + _vm._s(_vm.hourString) + ":" + _vm._s(_vm.minuteString) + "\n\t\t")])]), _vm._v(" "), _c('outside-click-handler', {
+    attrs: {
+      "on-outside-click": _vm.onClearFocus,
+      "focused": _vm.focused
+    }
+  }, [(_vm.focused) ? _c('time-picker-modal', {
+    attrs: {
+      "slot": "modal",
+      "init-hour": _vm.hour,
+      "init-minute": _vm.minute,
+      "handle-hour-change": _vm.handleHourChange,
+      "handle-minute-change": _vm.handleMinuteChange,
+      "handle-time-change": _vm.handleTimeChange
+    },
+    slot: "modal"
+  }) : _vm._e()], 1)], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9854019a", module.exports)
+  }
+}
+
+/***/ }),
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -17573,7 +18298,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "date": _vm.date,
       "option": _vm.option
     }
-  })], 1)]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Time")]), _vm._v(" "), _c('div', {
+    staticClass: "control"
+  }, [_c('vue-timepicker', {
+    model: {
+      value: (_vm.time),
+      callback: function($$v) {
+        _vm.time = $$v
+      },
+      expression: "time"
+    }
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, [_c('div', {
     staticClass: "control"
@@ -17583,15 +18322,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.addFilm
     }
   }, [_vm._v("Submit")])])])])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "field"
-  }, [_c('label', {
-    staticClass: "label"
-  }, [_vm._v("Time")]), _vm._v(" "), _c('div', {
-    staticClass: "control"
-  })])
-}]}
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
