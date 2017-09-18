@@ -19,6 +19,7 @@
     "bulma": "^0.5.2",
     "cross-env": "^5.0.5",
     "es2015": "^0.0.0",
+    "inputmask": "^3.3.8",
     "laravel-mix": "^1.4.3",
     "node-static": "^0.7.10",
     "transform-runtime": "^0.0.0",

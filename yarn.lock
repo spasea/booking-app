@@ -3289,6 +3289,10 @@ inputmask-core@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/inputmask-core/-/inputmask-core-2.2.0.tgz#79a75f7f3a4d3312ae95fd2b55a2366a7c91dfba"
 
+inputmask@^3.3.8:
+  version "3.3.8"
+  resolved "https://registry.yarnpkg.com/inputmask/-/inputmask-3.3.8.tgz#a29c6a24083ced712361be47a7d6c750efd2bb78"
+
 internal-ip@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-2.0.3.tgz#ed3cf9b671ac7ff23037bfacad42eb439cd9546c"

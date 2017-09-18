@@ -76,7 +76,7 @@
 				<div class="field">
 					<label class="label">Starting date</label>
 					<div class="control">
-						<date-picker :date="date" :option="option"></date-picker>
+						<date-picker :date="date" :option="settings.option"></date-picker>
 					</div>
 				</div>
 				<div class="field">
@@ -95,10 +95,10 @@
 				</div>
 				<div class="field">
 					<label class="label">Film price (UAH)</label>
-					<div class="control control--input">
-						<masked-input v-model="filmFields.price"
-									  mask="111.11" placeholder="Price"
-						></masked-input>
+					<div class="control">
+						<input type="text" class="input mask" v-model="filmFields.price"
+							   	data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
+						>
 					</div>
 				</div>
 				<div class="field">
@@ -116,32 +116,30 @@
 	import settings from '../models/datePickerConfig'
 
 	import vueSlider from 'vue-slider-component'
-	import MaskedInput from 'vue-masked-input'
+	import Inputmask from "inputmask"
 
 	export default {
 		data() {
 			return {
-				...{
-					title: 'AddFilm',
-					filmFields: {
-						title: '',
-						description: '',
-						price: ''
-					},
-					date: {
-						time: ''
-					},
-					logo: [],
-					fileNames: ['empty...'],
-					time: {
-						HH: '',
-						mm: ''
-					},
-					genre: '',
-					duration: 80,
-					photosNumber: 0
+				title: 'AddFilm',
+				filmFields: {
+					title: '',
+					description: '',
+					price: ''
 				},
-				...settings
+				date: {
+					time: ''
+				},
+				logo: [],
+				fileNames: ['empty...'],
+				time: {
+					HH: '',
+					mm: ''
+				},
+				genre: '',
+				duration: 80,
+				photosNumber: 0,
+				settings,
 			}
 		},
 		computed: {
@@ -221,12 +219,12 @@
 		},
 		mounted() {
 			this.genre = this.genres[0]['id'];
+			Inputmask().mask(document.querySelectorAll(".mask"));
 		},
 		components: {
 			DatePicker,
 			VueTimepicker,
 			vueSlider,
-			MaskedInput
 		}
 	}
 </script>
