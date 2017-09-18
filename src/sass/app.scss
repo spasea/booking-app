@@ -10,3 +10,9 @@
 .main {
 	flex-grow: 1;
 }
+
+.control--input {
+	input {
+		@extend .input;
+	}
+}

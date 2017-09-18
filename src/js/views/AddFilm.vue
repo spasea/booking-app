@@ -93,6 +93,14 @@
 					</div>
 				</div>
 				<div class="field">
+					<label class="label">Film price (UAH)</label>
+					<div class="control control--input">
+						<masked-input v-model="filmFields.price"
+									  mask="111.11" placeholder="Price"
+						></masked-input>
+					</div>
+				</div>
+				<div class="field">
 					<div class="control">
 						<button class="button is-primary" @click="addFilm">Submit</button>
 					</div>
@@ -107,6 +115,7 @@
 	import settings from '../models/datePickerConfig'
 
 	import vueSlider from 'vue-slider-component'
+	import MaskedInput from 'vue-masked-input'
 
 	export default {
 		data() {
@@ -116,12 +125,13 @@
 					filmFields: {
 						title: '',
 						description: '',
+						price: ''
 					},
 					date: {
 						time: ''
 					},
 					logo: [],
-					fileNames: [],
+					fileNames: ['empty...'],
 					time: {
 						HH: '',
 						mm: ''
@@ -160,7 +170,8 @@
 						date: this.date.time,
 						time: `${this.time.HH}:${this.time.mm}`,
 						duration: this.duration,
-						logo: this.logo
+						logo: this.logo,
+						price: this.filmFields.price
 					}
 				], this);
 				for (let field in this.filmFields) {
@@ -210,7 +221,8 @@
 		components: {
 			DatePicker,
 			VueTimepicker,
-			vueSlider
+			vueSlider,
+			MaskedInput
 		}
 	}
 </script>

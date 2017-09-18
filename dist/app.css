@@ -2606,6 +2606,7 @@ a.box:active {
 }
 
 .input,
+.control--input input,
 .textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -2641,9 +2642,13 @@ a.box:active {
 }
 
 .input:focus,
+.control--input input:focus,
 .input.is-focused,
+.control--input input.is-focused,
 .input:active,
+.control--input input:active,
 .input.is-active,
+.control--input input.is-active,
 .textarea:focus,
 .textarea.is-focused,
 .textarea:active,
@@ -2652,21 +2657,28 @@ a.box:active {
 }
 
 .input[disabled],
+.control--input input[disabled],
 .textarea[disabled] {
   cursor: not-allowed;
 }
 
 .input:hover,
+.control--input input:hover,
 .input.is-hovered,
+.control--input input.is-hovered,
 .textarea:hover,
 .textarea.is-hovered {
   border-color: #b5b5b5;
 }
 
 .input:focus,
+.control--input input:focus,
 .input.is-focused,
+.control--input input.is-focused,
 .input:active,
+.control--input input:active,
 .input.is-active,
+.control--input input.is-active,
 .textarea:focus,
 .textarea.is-focused,
 .textarea:active,
@@ -2677,6 +2689,7 @@ a.box:active {
 }
 
 .input[disabled],
+.control--input input[disabled],
 .textarea[disabled] {
   background-color: whitesmoke;
   border-color: whitesmoke;
@@ -2686,39 +2699,49 @@ a.box:active {
 }
 
 .input[disabled]::-moz-placeholder,
+.control--input input[disabled]::-moz-placeholder,
 .textarea[disabled]::-moz-placeholder {
   color: rgba(122, 122, 122, 0.3);
 }
 
 .input[disabled]::-webkit-input-placeholder,
+.control--input input[disabled]::-webkit-input-placeholder,
 .textarea[disabled]::-webkit-input-placeholder {
   color: rgba(122, 122, 122, 0.3);
 }
 
 .input[disabled]:-moz-placeholder,
+.control--input input[disabled]:-moz-placeholder,
 .textarea[disabled]:-moz-placeholder {
   color: rgba(122, 122, 122, 0.3);
 }
 
 .input[disabled]:-ms-input-placeholder,
+.control--input input[disabled]:-ms-input-placeholder,
 .textarea[disabled]:-ms-input-placeholder {
   color: rgba(122, 122, 122, 0.3);
 }
 
 .input[type="search"],
+.control--input input[type="search"],
 .textarea[type="search"] {
   border-radius: 290486px;
 }
 
 .input.is-white,
+.control--input input.is-white,
 .textarea.is-white {
   border-color: white;
 }
 
 .input.is-white:focus,
+.control--input input.is-white:focus,
 .input.is-white.is-focused,
+.control--input input.is-white.is-focused,
 .input.is-white:active,
+.control--input input.is-white:active,
 .input.is-white.is-active,
+.control--input input.is-white.is-active,
 .textarea.is-white:focus,
 .textarea.is-white.is-focused,
 .textarea.is-white:active,
@@ -2728,14 +2751,19 @@ a.box:active {
 }
 
 .input.is-black,
+.control--input input.is-black,
 .textarea.is-black {
   border-color: #0a0a0a;
 }
 
 .input.is-black:focus,
+.control--input input.is-black:focus,
 .input.is-black.is-focused,
+.control--input input.is-black.is-focused,
 .input.is-black:active,
+.control--input input.is-black:active,
 .input.is-black.is-active,
+.control--input input.is-black.is-active,
 .textarea.is-black:focus,
 .textarea.is-black.is-focused,
 .textarea.is-black:active,
@@ -2745,14 +2773,19 @@ a.box:active {
 }
 
 .input.is-light,
+.control--input input.is-light,
 .textarea.is-light {
   border-color: whitesmoke;
 }
 
 .input.is-light:focus,
+.control--input input.is-light:focus,
 .input.is-light.is-focused,
+.control--input input.is-light.is-focused,
 .input.is-light:active,
+.control--input input.is-light:active,
 .input.is-light.is-active,
+.control--input input.is-light.is-active,
 .textarea.is-light:focus,
 .textarea.is-light.is-focused,
 .textarea.is-light:active,
@@ -2762,14 +2795,19 @@ a.box:active {
 }
 
 .input.is-dark,
+.control--input input.is-dark,
 .textarea.is-dark {
   border-color: #363636;
 }
 
 .input.is-dark:focus,
+.control--input input.is-dark:focus,
 .input.is-dark.is-focused,
+.control--input input.is-dark.is-focused,
 .input.is-dark:active,
+.control--input input.is-dark:active,
 .input.is-dark.is-active,
+.control--input input.is-dark.is-active,
 .textarea.is-dark:focus,
 .textarea.is-dark.is-focused,
 .textarea.is-dark:active,
@@ -2779,14 +2817,19 @@ a.box:active {
 }
 
 .input.is-primary,
+.control--input input.is-primary,
 .textarea.is-primary {
   border-color: #00d1b2;
 }
 
 .input.is-primary:focus,
+.control--input input.is-primary:focus,
 .input.is-primary.is-focused,
+.control--input input.is-primary.is-focused,
 .input.is-primary:active,
+.control--input input.is-primary:active,
 .input.is-primary.is-active,
+.control--input input.is-primary.is-active,
 .textarea.is-primary:focus,
 .textarea.is-primary.is-focused,
 .textarea.is-primary:active,
@@ -2796,14 +2839,19 @@ a.box:active {
 }
 
 .input.is-info,
+.control--input input.is-info,
 .textarea.is-info {
   border-color: #3273dc;
 }
 
 .input.is-info:focus,
+.control--input input.is-info:focus,
 .input.is-info.is-focused,
+.control--input input.is-info.is-focused,
 .input.is-info:active,
+.control--input input.is-info:active,
 .input.is-info.is-active,
+.control--input input.is-info.is-active,
 .textarea.is-info:focus,
 .textarea.is-info.is-focused,
 .textarea.is-info:active,
@@ -2813,14 +2861,19 @@ a.box:active {
 }
 
 .input.is-success,
+.control--input input.is-success,
 .textarea.is-success {
   border-color: #23d160;
 }
 
 .input.is-success:focus,
+.control--input input.is-success:focus,
 .input.is-success.is-focused,
+.control--input input.is-success.is-focused,
 .input.is-success:active,
+.control--input input.is-success:active,
 .input.is-success.is-active,
+.control--input input.is-success.is-active,
 .textarea.is-success:focus,
 .textarea.is-success.is-focused,
 .textarea.is-success:active,
@@ -2830,14 +2883,19 @@ a.box:active {
 }
 
 .input.is-warning,
+.control--input input.is-warning,
 .textarea.is-warning {
   border-color: #ffdd57;
 }
 
 .input.is-warning:focus,
+.control--input input.is-warning:focus,
 .input.is-warning.is-focused,
+.control--input input.is-warning.is-focused,
 .input.is-warning:active,
+.control--input input.is-warning:active,
 .input.is-warning.is-active,
+.control--input input.is-warning.is-active,
 .textarea.is-warning:focus,
 .textarea.is-warning.is-focused,
 .textarea.is-warning:active,
@@ -2847,14 +2905,19 @@ a.box:active {
 }
 
 .input.is-danger,
+.control--input input.is-danger,
 .textarea.is-danger {
   border-color: #ff3860;
 }
 
 .input.is-danger:focus,
+.control--input input.is-danger:focus,
 .input.is-danger.is-focused,
+.control--input input.is-danger.is-focused,
 .input.is-danger:active,
+.control--input input.is-danger:active,
 .input.is-danger.is-active,
+.control--input input.is-danger.is-active,
 .textarea.is-danger:focus,
 .textarea.is-danger.is-focused,
 .textarea.is-danger:active,
@@ -2864,28 +2927,33 @@ a.box:active {
 }
 
 .input.is-small,
+.control--input input.is-small,
 .textarea.is-small {
   border-radius: 2px;
   font-size: 0.75rem;
 }
 
 .input.is-medium,
+.control--input input.is-medium,
 .textarea.is-medium {
   font-size: 1.25rem;
 }
 
 .input.is-large,
+.control--input input.is-large,
 .textarea.is-large {
   font-size: 1.5rem;
 }
 
 .input.is-fullwidth,
+.control--input input.is-fullwidth,
 .textarea.is-fullwidth {
   display: block;
   width: 100%;
 }
 
 .input.is-inline,
+.control--input input.is-inline,
 .textarea.is-inline {
   display: inline;
   width: auto;
@@ -3839,6 +3907,9 @@ a.box:active {
 
 .field.has-addons .control:first-child .button,
 .field.has-addons .control:first-child .input,
+.field.has-addons .control:first-child .control--input input,
+.control--input
+.field.has-addons .control:first-child input,
 .field.has-addons .control:first-child .select select {
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
@@ -3846,6 +3917,9 @@ a.box:active {
 
 .field.has-addons .control:last-child .button,
 .field.has-addons .control:last-child .input,
+.field.has-addons .control:last-child .control--input input,
+.control--input
+.field.has-addons .control:last-child input,
 .field.has-addons .control:last-child .select select {
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -3853,6 +3927,9 @@ a.box:active {
 
 .field.has-addons .control .button,
 .field.has-addons .control .input,
+.field.has-addons .control .control--input input,
+.control--input
+.field.has-addons .control input,
 .field.has-addons .control .select select {
   border-radius: 0;
 }
@@ -3860,7 +3937,13 @@ a.box:active {
 .field.has-addons .control .button:hover,
 .field.has-addons .control .button.is-hovered,
 .field.has-addons .control .input:hover,
+.field.has-addons .control .control--input input:hover,
+.control--input
+.field.has-addons .control input:hover,
 .field.has-addons .control .input.is-hovered,
+.field.has-addons .control .control--input input.is-hovered,
+.control--input
+.field.has-addons .control input.is-hovered,
 .field.has-addons .control .select select:hover,
 .field.has-addons .control .select select.is-hovered {
   z-index: 2;
@@ -3871,9 +3954,21 @@ a.box:active {
 .field.has-addons .control .button:active,
 .field.has-addons .control .button.is-active,
 .field.has-addons .control .input:focus,
+.field.has-addons .control .control--input input:focus,
+.control--input
+.field.has-addons .control input:focus,
 .field.has-addons .control .input.is-focused,
+.field.has-addons .control .control--input input.is-focused,
+.control--input
+.field.has-addons .control input.is-focused,
 .field.has-addons .control .input:active,
+.field.has-addons .control .control--input input:active,
+.control--input
+.field.has-addons .control input:active,
 .field.has-addons .control .input.is-active,
+.field.has-addons .control .control--input input.is-active,
+.control--input
+.field.has-addons .control input.is-active,
 .field.has-addons .control .select select:focus,
 .field.has-addons .control .select select.is-focused,
 .field.has-addons .control .select select:active,
@@ -3886,9 +3981,21 @@ a.box:active {
 .field.has-addons .control .button:active:hover,
 .field.has-addons .control .button.is-active:hover,
 .field.has-addons .control .input:focus:hover,
+.field.has-addons .control .control--input input:focus:hover,
+.control--input
+.field.has-addons .control input:focus:hover,
 .field.has-addons .control .input.is-focused:hover,
+.field.has-addons .control .control--input input.is-focused:hover,
+.control--input
+.field.has-addons .control input.is-focused:hover,
 .field.has-addons .control .input:active:hover,
+.field.has-addons .control .control--input input:active:hover,
+.control--input
+.field.has-addons .control input:active:hover,
 .field.has-addons .control .input.is-active:hover,
+.field.has-addons .control .control--input input.is-active:hover,
+.control--input
+.field.has-addons .control input.is-active:hover,
 .field.has-addons .control .select select:focus:hover,
 .field.has-addons .control .select select.is-focused:hover,
 .field.has-addons .control .select select:active:hover,
@@ -4084,19 +4191,27 @@ a.box:active {
   z-index: 4;
 }
 
-.control.has-icon .input:focus + .icon {
+.control.has-icon .input:focus + .icon,
+.control.has-icon .control--input input:focus + .icon,
+.control--input .control.has-icon input:focus + .icon {
   color: #7a7a7a;
 }
 
-.control.has-icon .input.is-small + .icon {
+.control.has-icon .input.is-small + .icon,
+.control.has-icon .control--input input.is-small + .icon,
+.control--input .control.has-icon input.is-small + .icon {
   font-size: 0.75rem;
 }
 
-.control.has-icon .input.is-medium + .icon {
+.control.has-icon .input.is-medium + .icon,
+.control.has-icon .control--input input.is-medium + .icon,
+.control--input .control.has-icon input.is-medium + .icon {
   font-size: 1.25rem;
 }
 
-.control.has-icon .input.is-large + .icon {
+.control.has-icon .input.is-large + .icon,
+.control.has-icon .control--input input.is-large + .icon,
+.control--input .control.has-icon input.is-large + .icon {
   font-size: 1.5rem;
 }
 
@@ -4104,7 +4219,9 @@ a.box:active {
   left: 0;
 }
 
-.control.has-icon:not(.has-icon-right) .input {
+.control.has-icon:not(.has-icon-right) .input,
+.control.has-icon:not(.has-icon-right) .control--input input,
+.control--input .control.has-icon:not(.has-icon-right) input {
   padding-left: 2.25em;
 }
 
@@ -4112,34 +4229,52 @@ a.box:active {
   right: 0;
 }
 
-.control.has-icon.has-icon-right .input {
+.control.has-icon.has-icon-right .input,
+.control.has-icon.has-icon-right .control--input input,
+.control--input .control.has-icon.has-icon-right input {
   padding-right: 2.25em;
 }
 
 .control.has-icons-left .input:focus ~ .icon,
+.control.has-icons-left .control--input input:focus ~ .icon,
+.control--input .control.has-icons-left input:focus ~ .icon,
 .control.has-icons-left .select:focus ~ .icon,
 .control.has-icons-right .input:focus ~ .icon,
+.control.has-icons-right .control--input input:focus ~ .icon,
+.control--input .control.has-icons-right input:focus ~ .icon,
 .control.has-icons-right .select:focus ~ .icon {
   color: #7a7a7a;
 }
 
 .control.has-icons-left .input.is-small ~ .icon,
+.control.has-icons-left .control--input input.is-small ~ .icon,
+.control--input .control.has-icons-left input.is-small ~ .icon,
 .control.has-icons-left .select.is-small ~ .icon,
 .control.has-icons-right .input.is-small ~ .icon,
+.control.has-icons-right .control--input input.is-small ~ .icon,
+.control--input .control.has-icons-right input.is-small ~ .icon,
 .control.has-icons-right .select.is-small ~ .icon {
   font-size: 0.75rem;
 }
 
 .control.has-icons-left .input.is-medium ~ .icon,
+.control.has-icons-left .control--input input.is-medium ~ .icon,
+.control--input .control.has-icons-left input.is-medium ~ .icon,
 .control.has-icons-left .select.is-medium ~ .icon,
 .control.has-icons-right .input.is-medium ~ .icon,
+.control.has-icons-right .control--input input.is-medium ~ .icon,
+.control--input .control.has-icons-right input.is-medium ~ .icon,
 .control.has-icons-right .select.is-medium ~ .icon {
   font-size: 1.25rem;
 }
 
 .control.has-icons-left .input.is-large ~ .icon,
+.control.has-icons-left .control--input input.is-large ~ .icon,
+.control--input .control.has-icons-left input.is-large ~ .icon,
 .control.has-icons-left .select.is-large ~ .icon,
 .control.has-icons-right .input.is-large ~ .icon,
+.control.has-icons-right .control--input input.is-large ~ .icon,
+.control--input .control.has-icons-right input.is-large ~ .icon,
 .control.has-icons-right .select.is-large ~ .icon {
   font-size: 1.5rem;
 }
@@ -4156,6 +4291,8 @@ a.box:active {
 }
 
 .control.has-icons-left .input,
+.control.has-icons-left .control--input input,
+.control--input .control.has-icons-left input,
 .control.has-icons-left .select select {
   padding-left: 2.25em;
 }
@@ -4165,6 +4302,8 @@ a.box:active {
 }
 
 .control.has-icons-right .input,
+.control.has-icons-right .control--input input,
+.control--input .control.has-icons-right input,
 .control.has-icons-right .select select {
   padding-right: 2.25em;
 }
