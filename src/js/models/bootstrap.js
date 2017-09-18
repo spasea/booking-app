@@ -16,3 +16,7 @@ Vue.use(VueLocalStorage, {
 
 import localstorage from './localstorage'
 window.ls = localstorage;
+
+import VueConfigManager from 'vue-config-manager'
+import settings from './settings'
+Vue.use(VueConfigManager, settings);

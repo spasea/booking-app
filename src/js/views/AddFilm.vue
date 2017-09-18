@@ -35,6 +35,17 @@
 					</div>
 				</div>
 				<div class="field">
+					<label class="label">Date</label>
+					<div class="control">
+						<date-picker :date="date" :option="option"></date-picker>
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Time</label>
+					<div class="control">
+					</div>
+				</div>
+				<div class="field">
 					<div class="control">
 						<button class="button is-primary" @click="addFilm">Submit</button>
 					</div>
@@ -45,15 +56,25 @@
 </template>
 
 <script>
+	import DatePicker from 'vue-datepicker'
+	import settings from '../models/datePickerConfig'
+
 	export default {
 		data() {
 			return {
-				title: 'AddFilm',
-				filmFields: {
-					title: '',
-					description: '',
+				...{
+					title: 'AddFilm',
+					filmFields: {
+						title: '',
+						description: '',
+						time: ''
+					},
+					date: {
+						time: ''
+					},
+					genre: '',
 				},
-				genre: this.genres[0]['id']
+				...settings
 			}
 		},
 		computed: {
@@ -67,15 +88,22 @@
 				ls.set('films', [
 					{
 						id,
-						categoryId: 1,
+						categoryId: this.genre,
 						title: this.filmFields.title,
-						description: this.filmFields.description
+						description: this.filmFields.description,
+						date: this.date.time
 					}
 				], this);
 				for (let field in this.filmFields) {
 					this.filmFields[field] = '';
 				}
 			}
+		},
+		mounted() {
+			this.genre = this.genres[0]['id'];
+		},
+		components: {
+			DatePicker
 		}
 	}
 </script>
