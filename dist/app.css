@@ -11007,12 +11007,16 @@ label.panel-block:hover {
 }
 
 .seat span.disabled {
-  background: #eeeeee;
+  background: #ddd;
   cursor: not-allowed;
 }
 
 .seat span.selected {
   background: #00d1b2;
+}
+
+.is-selected {
+  background: #ddd !important;
 }
 
 .main {

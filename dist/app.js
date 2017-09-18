@@ -13825,12 +13825,6 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 exports.default = {
 	data: function data() {
@@ -13855,15 +13849,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "to": "/add-film",
       "exact": ""
     }
-  }, [_vm._v("Add film")]), _vm._v(" "), _c('router-link', {
-    key: "Home",
-    staticClass: "button is-primary",
-    attrs: {
-      "tag": "button",
-      "to": "/",
-      "exact": ""
-    }
-  }, [_vm._v("Go home")])], 1)])
+  }, [_vm._v("Add film")])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -13883,6 +13869,45 @@ if (false) {
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _category = __webpack_require__(237);
+
+var _category2 = _interopRequireDefault(_category);
+
+var _searchFilm = __webpack_require__(238);
+
+var _searchFilm2 = _interopRequireDefault(_searchFilm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -13892,7 +13917,18 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = {
 	data: function data() {
-		return {};
+		return {
+			searchString: ''
+		};
+	},
+
+	computed: {
+		categories: function categories() {
+			return ls.get('categories', this);
+		},
+
+		category: _category2.default,
+		searchFilm: _searchFilm2.default
 	}
 };
 
@@ -13901,7 +13937,77 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n\tThis is header\n")])
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('nav', {
+    staticClass: "navbar",
+    attrs: {
+      "role": "navigation",
+      "aria-label": "main navigation"
+    }
+  }, [_c('div', {
+    staticClass: "navbar-start"
+  }, [_c('router-link', {
+    key: 0,
+    class: {
+      'navbar-item': true,
+      'is-selected': !_vm.category
+    },
+    attrs: {
+      "tag": "a",
+      "to": "/",
+      "exact": ""
+    },
+    nativeOn: {
+      "click": function($event) {
+        _vm.category = 0
+      }
+    }
+  }, [_vm._v("All categories")]), _vm._v(" "), _vm._l((_vm.categories), function(item, index) {
+    return _c('router-link', {
+      key: item.id,
+      class: {
+        'navbar-item': true,
+        'is-selected': item.id === _vm.category
+      },
+      attrs: {
+        "tag": "a",
+        "to": "/",
+        "exact": ""
+      },
+      nativeOn: {
+        "click": function($event) {
+          _vm.category = item.id
+        }
+      }
+    }, [_vm._v(_vm._s(item.title))])
+  })], 2), _vm._v(" "), _c('div', {
+    staticClass: "navbar-end"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.searchString),
+      expression: "searchString"
+    }],
+    staticClass: "input",
+    attrs: {
+      "type": "text",
+      "placeholder": "Search film"
+    },
+    domProps: {
+      "value": (_vm.searchString)
+    },
+    on: {
+      "keyup": function($event) {
+        _vm.searchFilm = _vm.searchString
+      },
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.searchString = $event.target.value
+      }
+    }
+  })])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32006,6 +32112,7 @@ var index_esm = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./category.js": 236,
 	"./film.js": 35,
 	"./modules.js": 12,
 	"./tmp.js": 36
@@ -32037,18 +32144,25 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 var state = {
-	filmId: 1
+	filmId: 1,
+	search: ''
 };
 
 var mutations = {
 	changeFilm: function changeFilm(state, id) {
 		state.filmId = id;
+	},
+	changeSearch: function changeSearch(state, string) {
+		state.search = string;
 	}
 };
 
 var getters = {
 	filmId: function filmId() {
 		return state.filmId;
+	},
+	search: function search() {
+		return state.search;
 	}
 };
 
@@ -32057,6 +32171,11 @@ var actions = {
 		var commit = _ref.commit;
 
 		commit('changeFilm', id);
+	},
+	search: function search(_ref2, string) {
+		var commit = _ref2.commit;
+
+		commit('changeSearch', string);
 	}
 };
 
@@ -40303,6 +40422,240 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var state = {
+	categoryId: 0
+};
+
+var mutations = {
+	changeCategory: function changeCategory(state, id) {
+		state.categoryId = id;
+	}
+};
+
+var getters = {
+	categoryId: function categoryId() {
+		return state.categoryId;
+	}
+};
+
+var actions = {
+	categoryId: function categoryId(_ref, id) {
+		var commit = _ref.commit;
+
+		commit('changeCategory', id);
+	}
+};
+
+exports.default = {
+	state: state,
+	mutations: mutations,
+	getters: getters,
+	actions: actions
+};
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	get: function get() {
+		return store.getters.categoryId;
+	},
+	set: function set(id) {
+		store.dispatch('categoryId', id);
+	}
+};
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	get: function get() {
+		return store.getters.search;
+	},
+	set: function set(string) {
+		store.dispatch('search', string);
+	}
+};
 
 /***/ })
 /******/ ]);

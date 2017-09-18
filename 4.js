@@ -14,17 +14,38 @@ var _film = __webpack_require__(91);
 
 var _film2 = _interopRequireDefault(_film);
 
+var _category = __webpack_require__(237);
+
+var _category2 = _interopRequireDefault(_category);
+
+var _searchFilm = __webpack_require__(238);
+
+var _searchFilm2 = _interopRequireDefault(_searchFilm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
 	data: function data() {
-		return {
-			filmsList: ls.get('films', this)
-		};
+		return {};
 	},
 
 	computed: {
-		film: _film2.default
+		film: _film2.default,
+		category: _category2.default,
+		searchFilm: _searchFilm2.default,
+		filmsList: function filmsList() {
+			var _this = this;
+
+			var filmsList = ls.get('films', this);
+			filmsList = filmsList.filter(function (value) {
+				return new RegExp(_this.searchFilm, 'i').test(value.title);
+			});
+			if (!this.category) return filmsList;
+
+			return filmsList.filter(function (value) {
+				return value.categoryId === _this.category;
+			});
+		}
 	}
 }; //
 //

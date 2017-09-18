@@ -7,12 +7,6 @@
 				to="/add-film"
 				exact
 			>Add film</router-link>
-			<router-link
-				tag="button" key="Home"
-				class="button is-primary"
-				to="/"
-				exact
-			>Go home</router-link>
 		</div>
 	</div>
 </template>

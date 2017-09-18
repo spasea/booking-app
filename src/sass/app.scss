@@ -40,13 +40,17 @@
 		height: 30px;
 		width: 30px;
 		&.disabled {
-			background: #eeeeee;
+			background: #ddd;
 			cursor: not-allowed;
 		}
 		&.selected {
 			background: $primary;
 		}
 	}
+}
+
+.is-selected {
+	background: #ddd !important;
 }
 
 .main {

@@ -27,15 +27,28 @@
 
 <script>
 	import film from '../store/computed/film'
+	import category from '../store/computed/category'
+	import searchFilm from '../store/computed/searchFilm'
 
 	export default {
 		data() {
 			return {
-				filmsList: ls.get('films', this)
+
 			}
 		},
 		computed: {
 			film,
+			category,
+			searchFilm,
+			filmsList() {
+				let filmsList = ls.get('films', this);
+				filmsList = filmsList.filter(value => new RegExp(this.searchFilm, 'i').test(value.title));
+				if (! this.category) return filmsList;
+
+				return filmsList.filter(value => {
+					return value.categoryId === this.category;
+				})
+			}
 		}
 	}
 </script>
