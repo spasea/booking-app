@@ -24,3 +24,7 @@ Vue.use(VueConfigManager, settings);
 import VueTimepicker from 'vue2-timepicker'
 Vue.use(VueTimepicker);
 window.VueTimepicker = VueTimepicker;
+
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+window.VeeValidate = VeeValidate;

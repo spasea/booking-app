@@ -15734,6 +15734,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var date = new Date();
 
 exports.default = {
 	data: function data() {
@@ -15745,13 +15769,13 @@ exports.default = {
 				price: ''
 			},
 			date: {
-				time: ''
+				time: this.format(date.getDate()) + '-' + this.format(date.getMonth() + 1) + '-' + this.format(date.getFullYear())
 			},
 			logo: [],
 			fileNames: ['empty...'],
 			time: {
-				HH: '',
-				mm: ''
+				HH: this.format(date.getHours()),
+				mm: this.format(date.getMinutes())
 			},
 			genre: '',
 			duration: 80,
@@ -15777,24 +15801,31 @@ exports.default = {
 	},
 	methods: {
 		addFilm: function addFilm() {
-			var id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
-			ls.set('films', [{
-				id: id,
-				categoryId: this.genre,
-				title: this.filmFields.title,
-				description: this.filmFields.description,
-				date: this.date.time,
-				time: this.time.HH + ':' + this.time.mm,
-				duration: this.duration,
-				logo: this.logo,
-				price: this.filmFields.price
-			}], this);
-			for (var field in this.filmFields) {
-				this.filmFields[field] = '';
-			}
-			this.logo = [];
-			this.fileNames = ['empty...'];
-			this.photosNumber = 0;
+			var _this = this;
+
+			this.$validator.validateAll().then(function (result) {
+				if (result) {
+					var id = ls.get('films', _this) ? ++ls.get('films', _this).length : 1;
+					ls.set('films', [{
+						id: id,
+						categoryId: _this.genre,
+						title: _this.filmFields.title,
+						description: _this.filmFields.description,
+						date: _this.date.time,
+						time: _this.time.HH + ':' + _this.time.mm,
+						duration: _this.duration,
+						logo: _this.logo,
+						price: _this.filmFields.price
+					}], _this);
+					for (var field in _this.filmFields) {
+						_this.filmFields[field] = '';
+					}
+					_this.logo = [];
+					_this.fileNames = ['empty...'];
+					_this.photosNumber = 0;
+					_this.errors.clear();
+				}
+			});
 		},
 		preventEvents: function preventEvents(e) {
 			e.preventDefault();
@@ -15824,15 +15855,18 @@ exports.default = {
 			}
 		},
 		createImage: function createImage(file) {
-			var _this = this;
+			var _this2 = this;
 
 			var reader = new FileReader();
 
 			reader.onload = function (e) {
-				_this.logo.push(e.target.result);
-				_this.fileNames.push(file.name);
+				_this2.logo.push(e.target.result);
+				_this2.fileNames.push(file.name);
 			};
 			reader.readAsDataURL(file);
+		},
+		format: function format(date) {
+			return date < 10 ? '0' + date : date;
 		}
 	},
 	mounted: function mounted() {
@@ -15843,7 +15877,8 @@ exports.default = {
 	components: {
 		DatePicker: _vueDatepicker2.default,
 		VueTimepicker: VueTimepicker,
-		vueSlider: _vueSliderComponent2.default
+		vueSlider: _vueSliderComponent2.default,
+		VeeValidate: VeeValidate
 	}
 };
 
@@ -17312,11 +17347,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       rawName: "v-model",
       value: (_vm.filmFields.title),
       expression: "filmFields.title"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required|alpha'),
+      expression: "'required|alpha'"
     }],
-    staticClass: "input",
+    class: {
+      'input': true,
+      'is-danger': _vm.errors.has('title')
+    },
     attrs: {
       "type": "text",
-      "placeholder": "Film title"
+      "placeholder": "Film title",
+      "name": "title"
     },
     domProps: {
       "value": (_vm.filmFields.title)
@@ -17327,7 +17371,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.filmFields.title = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.errors.has('title')) ? _c('p', {
+    staticClass: "help is-danger"
+  }, [_vm._v("This filed is required")]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, [_c('label', {
     staticClass: "label"
@@ -17339,10 +17385,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       rawName: "v-model",
       value: (_vm.filmFields.description),
       expression: "filmFields.description"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
     }],
-    staticClass: "textarea",
+    class: {
+      'textarea': true,
+      'is-danger': _vm.errors.has('description')
+    },
     attrs: {
-      "placeholder": "Film description"
+      "placeholder": "Film description",
+      "name": "description"
     },
     domProps: {
       "value": (_vm.filmFields.description)
@@ -17353,7 +17408,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.filmFields.description = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.errors.has('description')) ? _c('p', {
+    staticClass: "help is-danger"
+  }, [_vm._v("This filed is required")]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, [_c('label', {
     staticClass: "label"
@@ -17367,11 +17424,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('label', {
     staticClass: "file-label"
   }, [_c('input', {
+    directives: [{
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required|image'),
+      expression: "'required|image'"
+    }],
     staticClass: "file-input",
     attrs: {
       "type": "file",
       "multiple": "",
-      "name": "Image"
+      "name": "logo"
     },
     on: {
       "change": _vm.saveImage
@@ -17389,7 +17452,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "file-label"
   }, [_vm._v("\n\t\t\t\t\t\t\t\t\tLoading...\n\t\t\t\t\t\t\t\t")]) : _vm._e()]), _vm._v(" "), _c('span', {
     staticClass: "file-name"
-  }, [_vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.fileName) + "\n\t\t\t\t\t\t\t")])])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.fileName) + "\n\t\t\t\t\t\t\t")])]), _vm._v(" "), (_vm.errors.has('logo')) ? _c('p', {
+    staticClass: "help is-danger"
+  }, [_vm._v("This filed is required")]) : _vm._e()])])]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, _vm._l((_vm.logo), function(image) {
     return _c('img', {
@@ -17451,6 +17516,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Starting time")]), _vm._v(" "), _c('div', {
     staticClass: "control"
   }, [_c('vue-timepicker', {
+    attrs: {
+      "hide-clear-button": ""
+    },
     model: {
       value: (_vm.time),
       callback: function($$v) {
@@ -17488,10 +17556,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       rawName: "v-model",
       value: (_vm.filmFields.price),
       expression: "filmFields.price"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
     }],
-    staticClass: "input mask",
+    class: {
+      'input mask': true,
+      'is-danger': _vm.errors.has('price')
+    },
     attrs: {
       "type": "text",
+      "name": "price",
       "data-inputmask": "'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
     },
     domProps: {
@@ -17503,7 +17580,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.filmFields.price = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.errors.has('price')) ? _c('p', {
+    staticClass: "help is-danger"
+  }, [_vm._v("This filed is required")]) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, [_c('div', {
     staticClass: "control"

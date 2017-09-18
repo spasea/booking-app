@@ -10,13 +10,26 @@
 				<div class="field">
 					<label class="label">Title</label>
 					<div class="control">
-						<input class="input" type="text" placeholder="Film title" v-model="filmFields.title">
+						<input :class="{
+							'input': true,
+							'is-danger': errors.has('title')
+						}" type="text" placeholder="Film title" name="title" v-model="filmFields.title"
+							   v-validate="'required|alpha'"
+						>
+						<p class="help is-danger" v-if="errors.has('title')">This filed is required</p>
 					</div>
 				</div>
 				<div class="field">
 					<label class="label">Description</label>
 					<div class="control">
-						<textarea class="textarea" placeholder="Film description" v-model="filmFields.description"></textarea>
+						<textarea :class="{
+							'textarea': true,
+							'is-danger': errors.has('description')
+						}" placeholder="Film description" v-model="filmFields.description"
+								  name="description"
+								  v-validate="'required'"
+						></textarea>
+						<p class="help is-danger" v-if="errors.has('description')">This filed is required</p>
 					</div>
 				</div>
 				<div class="field">
@@ -27,8 +40,10 @@
 							'is-warning': isLoading && photosNumber
 						}">
 							<label class="file-label">
-								<input class="file-input" type="file" multiple name="Image"
+								<input class="file-input" type="file" multiple
 									@change="saveImage"
+								   	v-validate="'required|image'"
+								   	name="logo"
 								>
 								<span class="file-cta"
 									@drop="drop"
@@ -49,6 +64,7 @@
 									{{ fileName }}
 								</span>
 							</label>
+							<p class="help is-danger" v-if="errors.has('logo')">This filed is required</p>
 						</div>
 					</div>
 				</div>
@@ -82,7 +98,7 @@
 				<div class="field">
 					<label class="label">Starting time</label>
 					<div class="control">
-						<vue-timepicker v-model="time"></vue-timepicker>
+						<vue-timepicker v-model="time" hide-clear-button></vue-timepicker>
 					</div>
 				</div>
 				<div class="field">
@@ -96,9 +112,15 @@
 				<div class="field">
 					<label class="label">Film price (UAH)</label>
 					<div class="control">
-						<input type="text" class="input mask" v-model="filmFields.price"
-							   	data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
+						<input type="text" :class="{
+							'input mask': true,
+							'is-danger': errors.has('price')
+						}" v-model="filmFields.price"
+							   name="price"
+							   data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"
+							   v-validate="'required'"
 						>
+						<p class="help is-danger" v-if="errors.has('price')">This filed is required</p>
 					</div>
 				</div>
 				<div class="field">
@@ -118,6 +140,8 @@
 	import vueSlider from 'vue-slider-component'
 	import Inputmask from "inputmask"
 
+	const date = new Date();
+
 	export default {
 		data() {
 			return {
@@ -128,13 +152,13 @@
 					price: ''
 				},
 				date: {
-					time: ''
+					time: `${this.format(date.getDate())}-${this.format(date.getMonth() + 1)}-${this.format(date.getFullYear())}`
 				},
 				logo: [],
 				fileNames: ['empty...'],
 				time: {
-					HH: '',
-					mm: ''
+					HH: this.format(date.getHours()),
+					mm: this.format(date.getMinutes())
 				},
 				genre: '',
 				duration: 80,
@@ -159,26 +183,31 @@
 		},
 		methods: {
 			addFilm() {
-				let id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
-				ls.set('films', [
-					{
-						id,
-						categoryId: this.genre,
-						title: this.filmFields.title,
-						description: this.filmFields.description,
-						date: this.date.time,
-						time: `${this.time.HH}:${this.time.mm}`,
-						duration: this.duration,
-						logo: this.logo,
-						price: this.filmFields.price
+				this.$validator.validateAll().then(result => {
+					if (result) {
+						let id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
+						ls.set('films', [
+							{
+								id,
+								categoryId: this.genre,
+								title: this.filmFields.title,
+								description: this.filmFields.description,
+								date: this.date.time,
+								time: `${this.time.HH}:${this.time.mm}`,
+								duration: this.duration,
+								logo: this.logo,
+								price: this.filmFields.price
+							}
+						], this);
+						for (let field in this.filmFields) {
+							this.filmFields[field] = '';
+						}
+						this.logo = [];
+						this.fileNames = ['empty...'];
+						this.photosNumber = 0;
+						this.errors.clear();
 					}
-				], this);
-				for (let field in this.filmFields) {
-					this.filmFields[field] = '';
-				}
-				this.logo = [];
-				this.fileNames = ['empty...'];
-				this.photosNumber = 0;
+				});
 			},
 			preventEvents(e) {
 				e.preventDefault();
@@ -216,6 +245,9 @@
 				};
 				reader.readAsDataURL(file);
 			},
+			format(date) {
+				return date < 10 ? `0${date}` : date;
+			}
 		},
 		mounted() {
 			this.genre = this.genres[0]['id'];
@@ -225,6 +257,7 @@
 			DatePicker,
 			VueTimepicker,
 			vueSlider,
+			VeeValidate
 		}
 	}
 </script>
