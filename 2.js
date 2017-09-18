@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 190:
+/***/ 224:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _film = __webpack_require__(253);
+var _film = __webpack_require__(91);
 
 var _film2 = _interopRequireDefault(_film);
 
@@ -52,20 +52,21 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 
-/***/ 191:
+/***/ 225:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "columns"
+    staticClass: "columns is-wrapped"
   }, _vm._l((_vm.filmsList), function(item, index) {
     return _c('div', {
-      staticClass: "column center-content"
+      staticClass: "column center-content is-3"
     }, [_c('router-link', {
       key: index,
       attrs: {
@@ -84,7 +85,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "src": item.logo[0],
         "alt": "film.title"
       }
-    })])], 1)
+    }), _vm._v(" "), _c('span', {
+      staticClass: "label"
+    }, [_vm._v(_vm._s(item.title))])])], 1)
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('nav', {
@@ -108,35 +111,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 253:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = {
-	get: function get() {
-		return store.getters.filmId;
-	},
-	set: function set(id) {
-		store.dispatch('filmId', id);
-	}
-};
-
-/***/ }),
-
-/***/ 34:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(190),
+  __webpack_require__(224),
   /* template */
-  __webpack_require__(191),
+  __webpack_require__(225),
   /* styles */
   null,
   /* scopeId */
@@ -166,6 +149,26 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	get: function get() {
+		return store.getters.filmId;
+	},
+	set: function set(id) {
+		store.dispatch('filmId', id);
+	}
+};
 
 /***/ })
 
