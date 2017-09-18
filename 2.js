@@ -77,6 +77,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -85,10 +100,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			filmFields: {
 				title: '',
 				description: ''
-			}
+			},
+			genre: this.genres[0]['id']
 		};
 	},
 
+	computed: {
+		genres: function genres() {
+			return ls.get('categories', this);
+		}
+	},
 	methods: {
 		addFilm: function addFilm() {
 			var id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
@@ -173,6 +194,41 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Genre")]), _vm._v(" "), _c('div', {
+    staticClass: "control columns"
+  }, [_c('div', {
+    staticClass: "column"
+  }, [_c('div', {
+    staticClass: "select is-100"
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.genre),
+      expression: "genre"
+    }],
+    staticClass: "is-100",
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.genre = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, _vm._l((_vm.genres), function(genre) {
+    return _c('option', {
+      domProps: {
+        "value": genre.id
+      }
+    }, [_vm._v(_vm._s(genre.title))])
+  }))])])])]), _vm._v(" "), _c('div', {
     staticClass: "field"
   }, [_c('div', {
     staticClass: "control"

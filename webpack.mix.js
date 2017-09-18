@@ -13,8 +13,7 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('./')
 	.js('src/js/app.js', 'dist/')
-   .sass('src/sass/app.scss', 'dist/')
-	.browserSync('booking-app');
+	.sass('src/sass/app.scss', 'dist/');
 
 // Full API
 // mix.js(src, output);
