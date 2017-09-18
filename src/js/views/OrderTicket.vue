@@ -41,17 +41,33 @@
 		<div class="content">
 			<blockquote>Buy ticket</blockquote>
 		</div>
+		<div class="columns is-wrapped is-50" v-for="row in rows">
+			<div class="column is-2">Row {{ row }}</div>
+			<div class="column center-content seat" v-for="column in columns"
+			>
+				<span :class="{
+					'center-content': true,
+					'disabled': ! isFree(row, column),
+					'selected': isSelected(row, column)
+				}"
+					  @click="select(row, column)"
+				>{{ column }}</span>
+			</div>
+		</div>
+		<button class="button is-primary" @click="book">Buy</button>
 	</div>
 </template>
 
 <script>
 	import film from '../store/computed/film'
-	import FilmField from './FilmField'
+	import FilmField from './layout-parts/FilmField'
 
 	export default {
 		data() {
 			return {
-
+				rows: this.fill(5),
+				columns: this.fill(8),
+				selected: []
 			}
 		},
 		computed: {
@@ -67,7 +83,42 @@
 				})[0];
 			}
 		},
-		created() {
+		methods: {
+			fill(limit) {
+				let arr = [];
+				for (let i = 1; i <= limit; i++) {
+					arr.push(i);
+				}
+				return arr;
+			},
+			isFree(row, column) {
+				if (! ls.get(['sold', this.film], this)) return true;
+
+				return ! this.checkRowColumn(ls.get(['sold', this.film], this), row, column);
+			},
+			isSelected(row, column) {
+				return this.checkRowColumn(this.selected, row, column);
+			},
+			checkRowColumn(arr, row, column) {
+				return arr.filter(value => value.row === row && value.column === column).length;
+			},
+			select(row, column) {
+				if (this.isFree(row, column)) {
+					this.selected.push({row, column});
+				}
+			},
+			book() {
+				if (this.selected.length) {
+					let sold = ls.get('sold', this);
+					let prevContent = ls.get('sold', this)[this.film] ? ls.get('sold', this)[this.film] : [];
+					sold[this.film] = [...prevContent, ...this.selected];
+					ls.set('sold', sold, this, false);
+				    alert('Tickets were bought successfully');
+				    this.selected = [];
+				    return;
+				}
+				alert('There aren\'t any seats selected or there aren\'t any seats available');
+			}
 		},
 		components: {
 			FilmField

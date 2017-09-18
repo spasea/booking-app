@@ -32,6 +32,23 @@
 	flex-wrap: wrap;
 }
 
+.seat {
+	align-items: center;
+	span {
+		border-radius: 50%;
+		border: 1px #000 solid;
+		height: 30px;
+		width: 30px;
+		&.disabled {
+			background: #eeeeee;
+			cursor: not-allowed;
+		}
+		&.selected {
+			background: $primary;
+		}
+	}
+}
+
 .main {
 	flex-grow: 1;
 }

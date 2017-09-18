@@ -51,6 +51,15 @@
 					}
 				]), this);
 			}
+			if (! ls.get('seats', this)) {
+				ls.set('seats', {
+					rows: 5,
+					columns: 8
+				}, this);
+			}
+			if (! ls.get('sold', this)) {
+				ls.set('sold', {}, this);
+			}
 		},
 		router,
 		components: {

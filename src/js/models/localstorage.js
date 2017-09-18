@@ -1,15 +1,15 @@
 export default {
-	set(key, value, object = this) {
+	set(key, value, object = this, concat = true) {
 		if (Array.isArray(value)) {
-		    if (object.$ls.get(key, false)) {
+		    if (object.$ls.get(key, false) && concat) {
 				value = JSON.parse(object.$ls.get(key)).concat(value);
 		    }
 			object.$ls.set(key, JSON.stringify(value));
 		    return;
 		}
 		if (typeof value === "object") {
-			if (object.$ls.get(key, false)) {
-				value = _.assign(JSON.parse(object.$ls.get(key)), value);
+			if (object.$ls.get(key, false) && concat) {
+				value = {...JSON.parse(object.$ls.get(key)), ...value};
 			}
 			object.$ls.set(key, JSON.stringify(value));
 			return;

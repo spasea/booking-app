@@ -13641,6 +13641,15 @@ exports.default = {
 				title: 'Adventure'
 			}]), this);
 		}
+		if (!ls.get('seats', this)) {
+			ls.set('seats', {
+				rows: 5,
+				columns: 8
+			}, this);
+		}
+		if (!ls.get('sold', this)) {
+			ls.set('sold', {}, this);
+		}
 	},
 
 	router: _routes2.default,
@@ -13723,16 +13732,16 @@ var map = {
 		82,
 		0
 	],
-	"./FilmField.vue": [
-		81,
-		4
-	],
 	"./Home.vue": [
 		83,
-		2
+		4
 	],
 	"./OrderTicket.vue": [
 		84,
+		2
+	],
+	"./layout-parts/FilmField.vue": [
+		233,
 		1
 	],
 	"./layout-parts/FooterComponent.vue": [
@@ -32493,22 +32502,25 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 exports.default = {
 	set: function set(key, value) {
 		var object = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this;
+		var concat = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
 
 		if (Array.isArray(value)) {
-			if (object.$ls.get(key, false)) {
+			if (object.$ls.get(key, false) && concat) {
 				value = JSON.parse(object.$ls.get(key)).concat(value);
 			}
 			object.$ls.set(key, JSON.stringify(value));
 			return;
 		}
 		if ((typeof value === "undefined" ? "undefined" : _typeof(value)) === "object") {
-			if (object.$ls.get(key, false)) {
-				value = _.assign(JSON.parse(object.$ls.get(key)), value);
+			if (object.$ls.get(key, false) && concat) {
+				value = _extends({}, JSON.parse(object.$ls.get(key)), value);
 			}
 			object.$ls.set(key, JSON.stringify(value));
 			return;
