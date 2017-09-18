@@ -8,9 +8,15 @@
 		<div class="columns">
 			<section class="column is-half is-offset-one-quarter">
 				<div class="field">
-					<label class="label">Name</label>
+					<label class="label">Title</label>
 					<div class="control">
-						<input class="input" type="text" placeholder="Text input" v-model="filmTitle">
+						<input class="input" type="text" placeholder="Film title" v-model="filmFields.title">
+					</div>
+				</div>
+				<div class="field">
+					<label class="label">Description</label>
+					<div class="control">
+						<textarea class="textarea" placeholder="Film description" v-model="filmFields.description"></textarea>
 					</div>
 				</div>
 				<div class="field">
@@ -28,17 +34,26 @@
 		data() {
 			return {
 				title: 'AddFilm',
-				filmTitle: ''
+				filmFields: {
+					title: '',
+					description: ''
+				},
 			}
 		},
 		methods: {
 			addFilm() {
-				ls.set('comedy', [
+				let id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
+				ls.set('films', [
 					{
-						title: this.filmTitle
+						id,
+						categoryId: 1,
+						title: this.filmFields.title,
+						description: this.filmFields.description
 					}
 				], this);
-				this.filmTitle = '';
+				for (let field in this.filmFields) {
+					this.filmFields[field] = '';
+				}
 			}
 		}
 	}

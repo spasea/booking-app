@@ -17,6 +17,12 @@ export default {
 		object.$ls.set(key, value);
 	},
 	get(key, object = this) {
+		if (Array.isArray(key)) {
+			if (! object.$ls.get(key, false)) {
+				return JSON.parse(object.$ls.get(key[0], false))[key[1]];
+			}
+			return JSON.parse(object.$ls.get(key[0], false));
+		}
 		return JSON.parse(object.$ls.get(key, false));
 	}
 }

@@ -28,6 +28,30 @@
 
 			}
 		},
+		methods: {
+			fillId(arr, count = 0) {
+				if (arr.length > count) {
+					arr[count]['id'] = ++count;
+					return this.fillId(arr, count);
+				}
+				return arr;
+			}
+		},
+		mounted() {
+			if (! ls.get('categories', this)) {
+			    ls.set('categories', this.fillId([
+					{
+						title: 'Comedy',
+					},
+					{
+						title: 'Horror'
+					},
+					{
+						title: 'Adventure'
+					}
+				]), this);
+			}
+		},
 		router,
 		components: {
 			HeaderComponent,

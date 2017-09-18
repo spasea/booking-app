@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 27:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(30),
+  __webpack_require__(33),
   /* template */
-  __webpack_require__(31),
+  __webpack_require__(34),
   /* styles */
   null,
   /* scopeId */
@@ -41,11 +41,17 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 30:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76,23 +82,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			title: 'AddFilm',
-			filmTitle: ''
+			filmFields: {
+				title: '',
+				description: ''
+			}
 		};
 	},
 
 	methods: {
 		addFilm: function addFilm() {
-			ls.set('comedy', [{
-				title: this.filmTitle
+			var id = ls.get('films', this) ? ++ls.get('films', this).length : 1;
+			ls.set('films', [{
+				id: id,
+				categoryId: 1,
+				title: this.filmFields.title,
+				description: this.filmFields.description
 			}], this);
-			this.filmTitle = '';
+			for (var field in this.filmFields) {
+				this.filmFields[field] = '';
+			}
 		}
 	}
 });
 
 /***/ }),
 
-/***/ 31:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -108,27 +123,53 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "field"
   }, [_c('label', {
     staticClass: "label"
-  }, [_vm._v("Name")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Title")]), _vm._v(" "), _c('div', {
     staticClass: "control"
   }, [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.filmTitle),
-      expression: "filmTitle"
+      value: (_vm.filmFields.title),
+      expression: "filmFields.title"
     }],
     staticClass: "input",
     attrs: {
       "type": "text",
-      "placeholder": "Text input"
+      "placeholder": "Film title"
     },
     domProps: {
-      "value": (_vm.filmTitle)
+      "value": (_vm.filmFields.title)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.filmTitle = $event.target.value
+        _vm.filmFields.title = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "field"
+  }, [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Description")]), _vm._v(" "), _c('div', {
+    staticClass: "control"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.filmFields.description),
+      expression: "filmFields.description"
+    }],
+    staticClass: "textarea",
+    attrs: {
+      "placeholder": "Film description"
+    },
+    domProps: {
+      "value": (_vm.filmFields.description)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.filmFields.description = $event.target.value
       }
     }
   })])]), _vm._v(" "), _c('div', {
