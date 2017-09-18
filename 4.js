@@ -15823,7 +15823,10 @@ exports.default = {
 					_this.logo = [];
 					_this.fileNames = ['empty...'];
 					_this.photosNumber = 0;
-					_this.errors.clear();
+					alert('Film was successfully added');
+					setTimeout(function () {
+						_this.errors.clear();
+					}, 100);
 				}
 			});
 		},
@@ -17350,8 +17353,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, {
       name: "validate",
       rawName: "v-validate",
-      value: ('required|alpha'),
-      expression: "'required|alpha'"
+      value: ('required'),
+      expression: "'required'"
     }],
     class: {
       'input': true,

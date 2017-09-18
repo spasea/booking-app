@@ -14,7 +14,7 @@
 							'input': true,
 							'is-danger': errors.has('title')
 						}" type="text" placeholder="Film title" name="title" v-model="filmFields.title"
-							   v-validate="'required|alpha'"
+							   v-validate="'required'"
 						>
 						<p class="help is-danger" v-if="errors.has('title')">This filed is required</p>
 					</div>
@@ -205,7 +205,10 @@
 						this.logo = [];
 						this.fileNames = ['empty...'];
 						this.photosNumber = 0;
-						this.errors.clear();
+						alert('Film was successfully added');
+						setTimeout(() => {
+							this.errors.clear();
+						}, 100);
 					}
 				});
 			},
