@@ -12,6 +12,7 @@
 				<router-link
 					tag="a" :key="index"
 					:to="`/order-ticket/${item.id}`"
+					class="center-content"
 					exact
 				>
 					<img :src="item.logo[0]" alt="film.title"

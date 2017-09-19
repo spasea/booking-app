@@ -47,6 +47,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
 	data: function data() {
@@ -106,6 +107,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "column center-content is-3"
     }, [_c('router-link', {
       key: index,
+      staticClass: "center-content",
       attrs: {
         "tag": "a",
         "to": ("/order-ticket/" + (item.id)),
