@@ -1,0 +1,8 @@
+$step: 10;
+
+@for $i from 1 through 10 {
+	$value: $i * $step;
+	.is-#{$value} {
+		width: unquote($value + '%');
+	}
+}

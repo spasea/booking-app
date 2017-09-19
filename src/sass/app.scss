@@ -1,0 +1,64 @@
+@import "~bulma/bulma";
+@import "classes";
+
+#app {
+	display: flex;
+	flex-flow: column wrap;
+	min-height: 100vh;
+}
+
+.footer {
+	margin-top: 20px;
+}
+
+.film-preview {
+	&--large {
+		height: 300px;
+		width: 250px;
+	}
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+.center-content {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: start;
+	justify-content: center;
+}
+
+.is-wrapped {
+	flex-wrap: wrap;
+}
+
+.seat {
+	align-items: center;
+	span {
+		border-radius: 50%;
+		border: 1px #000 solid;
+		height: 30px;
+		width: 30px;
+		&.disabled {
+			background: #ddd;
+			cursor: not-allowed;
+		}
+		&.selected {
+			background: $primary;
+		}
+	}
+}
+
+.is-selected {
+	background: #ddd !important;
+}
+
+.main {
+	flex-grow: 1;
+}
+
+.control--input {
+	input {
+		@extend .input;
+	}
+}
