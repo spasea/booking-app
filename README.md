@@ -1,10 +1,11 @@
 # booking-app
 
-```
+
 Setup
+-------------------
 
-
-run yarn or npm install
-run node server.js
-open localhost:3000
+```
+1) yarn or npm install
+2) node server.js
+3) localhost:3000
 ```
