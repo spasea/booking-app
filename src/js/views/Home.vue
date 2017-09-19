@@ -7,7 +7,7 @@
 		</nav>
 		<div class="columns is-wrapped">
 			<div class="column center-content is-3"
-				 v-for="(item, index) in filmsList"
+				 v-for="(item, index) in filmsFiltered"
 			>
 				<router-link
 					tag="a" :key="index"
@@ -19,6 +19,7 @@
 					>
 					<span class="label">{{ item.title }}</span>
 				</router-link>
+				<button class="button is-primary" @click="deleteFilm(item.id)">Delete</button>
 			</div>
 		</div>
 	</div>
@@ -31,20 +32,35 @@
 	export default {
 		data() {
 			return {
-
+				filmsList: ls.get('films', this)
 			}
 		},
 		computed: {
 			category,
 			searchFilm,
-			filmsList() {
-				let filmsList = ls.get('films', this);
+			filmsFiltered() {
+				let filmsList = this.filmsList;
 				filmsList = filmsList.filter(value => new RegExp(this.searchFilm, 'i').test(value.title));
 				if (! this.category) return filmsList;
 
 				return filmsList.filter(value => {
 					return value.categoryId === this.category;
 				})
+			}
+		},
+		methods: {
+			deleteFilm(id) {
+				let sold = ls.get('sold', this);
+				if (sold[id]) {
+					delete sold[id];
+					ls.set('sold', sold, this, false);
+				}
+				let films = ls.get('films', this);
+				let index = films.findIndex(element => element.id === id);
+				films.splice(index, 1);
+
+				ls.set('films', films, this, false);
+				this.filmsList = ls.get('films', this);
 			}
 		}
 	}

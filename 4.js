@@ -46,19 +46,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 exports.default = {
 	data: function data() {
-		return {};
+		return {
+			filmsList: ls.get('films', this)
+		};
 	},
 
 	computed: {
 		category: _category2.default,
 		searchFilm: _searchFilm2.default,
-		filmsList: function filmsList() {
+		filmsFiltered: function filmsFiltered() {
 			var _this = this;
 
-			var filmsList = ls.get('films', this);
+			var filmsList = this.filmsList;
 			filmsList = filmsList.filter(function (value) {
 				return new RegExp(_this.searchFilm, 'i').test(value.title);
 			});
@@ -67,6 +70,23 @@ exports.default = {
 			return filmsList.filter(function (value) {
 				return value.categoryId === _this.category;
 			});
+		}
+	},
+	methods: {
+		deleteFilm: function deleteFilm(id) {
+			var sold = ls.get('sold', this);
+			if (sold[id]) {
+				delete sold[id];
+				ls.set('sold', sold, this, false);
+			}
+			var films = ls.get('films', this);
+			var index = films.findIndex(function (element) {
+				return element.id === id;
+			});
+			films.splice(index, 1);
+
+			ls.set('films', films, this, false);
+			this.filmsList = ls.get('films', this);
 		}
 	}
 };
@@ -81,7 +101,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "columns is-wrapped"
-  }, _vm._l((_vm.filmsList), function(item, index) {
+  }, _vm._l((_vm.filmsFiltered), function(item, index) {
     return _c('div', {
       staticClass: "column center-content is-3"
     }, [_c('router-link', {
@@ -99,7 +119,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), _vm._v(" "), _c('span', {
       staticClass: "label"
-    }, [_vm._v(_vm._s(item.title))])])], 1)
+    }, [_vm._v(_vm._s(item.title))])]), _vm._v(" "), _c('button', {
+      staticClass: "button is-primary",
+      on: {
+        "click": function($event) {
+          _vm.deleteFilm(item.id)
+        }
+      }
+    }, [_vm._v("Delete")])], 1)
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('nav', {

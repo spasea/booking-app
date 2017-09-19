@@ -64,7 +64,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "columns is-wrapped"
-  }, _vm._l((_vm.filmsList), function(item, index) {
+  }, _vm._l((_vm.filmsFiltered), function(item, index) {
     return _c('div', {
       staticClass: "column center-content is-3"
     }, [_c('router-link', {
