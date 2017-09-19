@@ -11,8 +11,9 @@ let routes = [
 	},
 	{
 		name: 'OrderTicket',
-		path: '/order-ticket',
+		path: '/order-ticket/:filmId?',
 		component: view('OrderTicket'),
+		props: true
 	}
 ];
 

@@ -10,10 +10,6 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _film = __webpack_require__(91);
-
-var _film2 = _interopRequireDefault(_film);
-
 var _FilmField = __webpack_require__(233);
 
 var _FilmField2 = _interopRequireDefault(_FilmField);
@@ -90,13 +86,18 @@ exports.default = {
 		};
 	},
 
+	props: {
+		filmId: {
+			required: false,
+			default: 1
+		}
+	},
 	computed: {
-		film: _film2.default,
 		filmSelected: function filmSelected() {
 			var _this = this;
 
 			return ls.get('films', this).filter(function (item) {
-				return item.id === _this.film;
+				return item.id === +_this.filmId;
 			})[0];
 		},
 		genre: function genre() {
@@ -116,9 +117,9 @@ exports.default = {
 			return arr;
 		},
 		isFree: function isFree(row, column) {
-			if (!ls.get(['sold', this.film], this)) return true;
+			if (!ls.get(['sold', +this.filmId], this)) return true;
 
-			return !this.checkRowColumn(ls.get(['sold', this.film], this), row, column);
+			return !this.checkRowColumn(ls.get(['sold', +this.filmId], this), row, column);
 		},
 		isSelected: function isSelected(row, column) {
 			return this.checkRowColumn(this.selected, row, column);
@@ -136,8 +137,8 @@ exports.default = {
 		book: function book() {
 			if (this.selected.length) {
 				var sold = ls.get('sold', this);
-				var prevContent = ls.get('sold', this)[this.film] ? ls.get('sold', this)[this.film] : [];
-				sold[this.film] = [].concat(_toConsumableArray(prevContent), _toConsumableArray(this.selected));
+				var prevContent = ls.get('sold', this)[+this.filmId] ? ls.get('sold', this)[+this.filmId] : [];
+				sold[+this.filmId] = [].concat(_toConsumableArray(prevContent), _toConsumableArray(this.selected));
 				ls.set('sold', sold, this, false);
 				alert('Tickets were bought successfully');
 				this.selected = [];
@@ -380,26 +381,6 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
-
-/***/ }),
-
-/***/ 91:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = {
-	get: function get() {
-		return store.getters.filmId;
-	},
-	set: function set(id) {
-		store.dispatch('filmId', id);
-	}
-};
 
 /***/ })
 

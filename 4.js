@@ -10,10 +10,6 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _film = __webpack_require__(91);
-
-var _film2 = _interopRequireDefault(_film);
-
 var _category = __webpack_require__(237);
 
 var _category2 = _interopRequireDefault(_category);
@@ -24,13 +20,39 @@ var _searchFilm2 = _interopRequireDefault(_searchFilm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
 	data: function data() {
 		return {};
 	},
 
 	computed: {
-		film: _film2.default,
 		category: _category2.default,
 		searchFilm: _searchFilm2.default,
 		filmsList: function filmsList() {
@@ -47,33 +69,7 @@ exports.default = {
 			});
 		}
 	}
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 
@@ -92,13 +88,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: index,
       attrs: {
         "tag": "a",
-        "to": "/order-ticket",
+        "to": ("/order-ticket/" + (item.id)),
         "exact": ""
-      },
-      nativeOn: {
-        "click": function($event) {
-          _vm.film = item.id
-        }
       }
     }, [_c('img', {
       staticClass: "film-preview film-preview--large",
@@ -170,26 +161,6 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
-
-/***/ }),
-
-/***/ 91:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = {
-	get: function get() {
-		return store.getters.filmId;
-	},
-	set: function set(id) {
-		store.dispatch('filmId', id);
-	}
-};
 
 /***/ })
 

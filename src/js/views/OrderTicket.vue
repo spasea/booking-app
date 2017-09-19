@@ -59,7 +59,6 @@
 </template>
 
 <script>
-	import film from '../store/computed/film'
 	import FilmField from './layout-parts/FilmField'
 
 	export default {
@@ -70,11 +69,16 @@
 				selected: []
 			}
 		},
+		props: {
+			filmId: {
+				required: false,
+				default: 1,
+			}
+		},
 		computed: {
-			film,
 			filmSelected() {
 				return ls.get('films', this).filter(item => {
-					return item.id === this.film;
+					return item.id === +this.filmId;
 				})[0];
 			},
 			genre() {
@@ -92,9 +96,9 @@
 				return arr;
 			},
 			isFree(row, column) {
-				if (! ls.get(['sold', this.film], this)) return true;
+				if (! ls.get(['sold', +this.filmId], this)) return true;
 
-				return ! this.checkRowColumn(ls.get(['sold', this.film], this), row, column);
+				return ! this.checkRowColumn(ls.get(['sold', +this.filmId], this), row, column);
 			},
 			isSelected(row, column) {
 				return this.checkRowColumn(this.selected, row, column);
@@ -110,8 +114,8 @@
 			book() {
 				if (this.selected.length) {
 					let sold = ls.get('sold', this);
-					let prevContent = ls.get('sold', this)[this.film] ? ls.get('sold', this)[this.film] : [];
-					sold[this.film] = [...prevContent, ...this.selected];
+					let prevContent = ls.get('sold', this)[+this.filmId] ? ls.get('sold', this)[+this.filmId] : [];
+					sold[+this.filmId] = [...prevContent, ...this.selected];
 					ls.set('sold', sold, this, false);
 				    alert('Tickets were bought successfully');
 				    this.selected = [];

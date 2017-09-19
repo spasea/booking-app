@@ -11,9 +11,8 @@
 			>
 				<router-link
 					tag="a" :key="index"
-					to="/order-ticket"
+					:to="`/order-ticket/${item.id}`"
 					exact
-					@click.native="film = item.id"
 				>
 					<img :src="item.logo[0]" alt="film.title"
 						 class="film-preview film-preview--large"
@@ -26,7 +25,6 @@
 </template>
 
 <script>
-	import film from '../store/computed/film'
 	import category from '../store/computed/category'
 	import searchFilm from '../store/computed/searchFilm'
 
@@ -37,7 +35,6 @@
 			}
 		},
 		computed: {
-			film,
 			category,
 			searchFilm,
 			filmsList() {

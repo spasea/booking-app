@@ -13706,8 +13706,9 @@ var routes = [{
 	component: view('AddFilm')
 }, {
 	name: 'OrderTicket',
-	path: '/order-ticket',
-	component: view('OrderTicket')
+	path: '/order-ticket/:filmId?',
+	component: view('OrderTicket'),
+	props: true
 }];
 
 /**
@@ -32144,36 +32145,24 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 var state = {
-	filmId: 1,
 	search: ''
 };
 
 var mutations = {
-	changeFilm: function changeFilm(state, id) {
-		state.filmId = id;
-	},
 	changeSearch: function changeSearch(state, string) {
 		state.search = string;
 	}
 };
 
 var getters = {
-	filmId: function filmId() {
-		return state.filmId;
-	},
 	search: function search() {
 		return state.search;
 	}
 };
 
 var actions = {
-	filmId: function filmId(_ref, id) {
+	search: function search(_ref, string) {
 		var commit = _ref.commit;
-
-		commit('changeFilm', id);
-	},
-	search: function search(_ref2, string) {
-		var commit = _ref2.commit;
 
 		commit('changeSearch', string);
 	}
