@@ -107,8 +107,13 @@
 				return arr.filter(value => value.row === row && value.column === column).length;
 			},
 			select(row, column) {
-				if (this.isFree(row, column)) {
+				if (this.isFree(row, column) && !this.isSelected(row, column)) {
 					this.selected.push({row, column});
+					return;
+				}
+				if (this.isSelected(row, column)) {
+				    let index = this.selected.findIndex(element => element.row === row && element.column === column);
+					this.selected.splice(index, 1);
 				}
 			},
 			book() {
