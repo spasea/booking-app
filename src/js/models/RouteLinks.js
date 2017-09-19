@@ -19,7 +19,7 @@ let routes = [
 
 /**
  * Asynchronously load view (Webpack Lazy loading compatible)
- * @param  {string}   name     the filename (basename) of the view to load.
+ * @param  {string}   name   the filename (basename) of the view to load.
  */
 function view(name) {
 	return function(resolve) {

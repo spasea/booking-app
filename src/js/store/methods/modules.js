@@ -2,7 +2,6 @@ const files = require.context('.', false, /\.js$/);
 const modules = {};
 const notIncludes = [
 	'./modules.js',
-	'./tmp.js'
 ];
 
 files.keys().forEach(key => {

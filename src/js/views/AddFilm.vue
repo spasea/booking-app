@@ -42,13 +42,13 @@
 							<label class="file-label">
 								<input class="file-input" type="file" multiple
 									@change="saveImage"
-								   	v-validate="'required|image'"
+								   	v-validate="'image'"
 								   	name="logo"
 								>
 								<span class="file-cta"
 									@drop="drop"
-									@dragover="dragover"
-									@dragleave="dragleave"
+									@dragover="preventEvents"
+									@dragleave="preventEvents"
 								>
 									<span class="file-icon">
 										<i class="fa fa-upload"></i>
@@ -219,12 +219,6 @@
 			drop(e) {
 				this.preventEvents(e);
 				this.saveImage(e);
-			},
-			dragover(e) {
-				this.preventEvents(e);
-			},
-			dragleave(e) {
-				this.preventEvents(e);
 			},
 			saveImage(e) {
 				const files = e.target.files || e.dataTransfer.files;
